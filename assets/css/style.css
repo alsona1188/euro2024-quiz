@@ -1,0 +1,14 @@
+/* Asterisk wildcard selector to override default styles added by the browser */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* General styles */
+body {
+    min-height: 100vh;
+    background: url(/assets/images/Banner-image30-13.jpg);
+
+    
+}
