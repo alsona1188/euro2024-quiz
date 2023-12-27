@@ -1,3 +1,5 @@
+/* Google fonts import */
+
 /* Asterisk wildcard selector to override default styles added by the browser */
 * {
     padding: 0;
@@ -9,6 +11,63 @@
 body {
     min-height: 100vh;
     background: url(/assets/images/Banner-image30-13.jpg);
-
+    font-family: 'Inter', sans-serif;
     
+}
+.heading{
+    text-align: center;
+    font-size: 2rem;
+    padding: 20px;
+    background: #DAD937;
+    color: #1E3BC8;
+    width: 90%;
+    max-width: 470px;
+    margin: 50px auto 10px;
+    border-radius: 10px;
+   
+    
+}
+.quiz-area {
+    background-color: rgba(54, 44, 81, 0.8);
+    color: #d8e8d2;
+    border-radius: 10px;
+    text-align: center;
+    padding: 30px;
+    margin: 50px auto 15px;
+    max-width: 470px;
+    width: 90%;
+}
+.quiz-area h2 {
+    font-size: 22px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid;
+}
+.btn{
+    background: #d8e8d2;
+    font-weight: 500;
+    width: 100%;
+    border: 1px solid #F9F871;
+    color: rgb(54, 44, 81);
+    padding: 10px;
+    margin: 10px 0;
+    text-align: left;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.btn:hover{
+    background: #F9F871;
+}
+
+#next-button{
+    background: rgb(89, 42, 217);
+    color: #d8e8d2;
+    font-weight: 500;
+    width: 150px;
+    height: 30px;
+    border: 1;
+    border-radius: 20px;
+    margin: 20px auto 0;
+    cursor: pointer;
+    display: none;
 }
