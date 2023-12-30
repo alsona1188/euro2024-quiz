@@ -4,9 +4,9 @@ const questions = [
     {
         question: "Where will EURO 2024 be held?",
         answers: [
-            { option: "Germany", value: true },
-            { option: "Italy", value: false },
             { option: "Greece", value: false },
+            { option: "Italy", value: false },
+            { option: "Germany", value: true },
             { option: "USA", value: false },
         ]
     },
@@ -23,10 +23,10 @@ const questions = [
     {
         question: "Which from these countries is not qualified for the EURO 2024?",
         answers: [
-            { option: "Albania", correct: false },
-            { option: "Croatia", correct: false },
-            { option: "Netherlands", correct: false },
-            { option: "Romania", correct: true },
+            { option: "Albania", value: false },
+            { option: "Croatia", value: false },
+            { option: "Netherlands", value: false },
+            { option: "Romania", value: true },
         ]
     },
     {
@@ -41,55 +41,116 @@ const questions = [
     {
         question: "Which country won EURO 2008 cup?",
         answers: [
-            { option: "Italy", correct: false },
-            { option: "Spain", correct: true },
-            { option: "Portugal", correct: false },
-            { option: "England", correct: false },
+            { option: "Italy", value: false },
+            { option: "Spain", value: true },
+            { option: "Portugal", value: false },
+            { option: "England", value: false },
         ]
     },
 {
         question: "How many times has Germany won the EURO cup?",
         answers: [
-            { option: "5", correct: false },
-            { option: "4", correct: false },
-            { option: "3", correct: true },
-            { option: "2", correct: false },
+            { option: "5", value: false },
+            { option: "4", value: false },
+            { option: "3", value: true },
+            { option: "2", value: false },
         ]
     },
     {
         question: "When and where was held the first European Football Championship?",
         answers: [
-            { option: "Paris, 1960", correct: true },
-            { option: "London, 1954", correct: false },
-            { option: "Rome, 1956", correct: false },
-            { option: "Brussels, 1958", correct: false },
+            { option: "Paris, 1960", value: true },
+            { option: "London, 1954", value: false },
+            { option: "Rome, 1956", value: false },
+            { option: "Brussels, 1958", value: false },
         ]
     },
     {
         question: "Which from these countries never won the European Championship?",
         answers: [
-            { option: "Greece", correct: false },
-            { option: "Denmark", correct: false },
-            { option: "Russia", correct: false },
-            { option: "Belgium", correct: true },
+            { option: "Greece", value: false },
+            { option: "Denmark", value: false },
+            { option: "Russia", value: false },
+            { option: "Belgium", value: true },
         ]
     },
     {
         question: "In 1968 Italy won the final match against which country?",
         answers: [
-            { option: "England", correct: false },
-            { option: "Soviet Union", correct: false },
-            { option: "Yugoslavia", correct: true },
-            { option: "Hungary", correct: false },
+            { option: "England", value: false },
+            { option: "Soviet Union", value: false },
+            { option: "Yugoslavia", value: true },
+            { option: "Hungary", value: false },
         ]
     },
     {
         question: "How many nations compete at the European Championship?",
         answers: [
-            { option: "20", correct: false },
-            { option: "22", correct: false },
-            { option: "26", correct: false },
-            { option: "24", correct: true },
+            { option: "20", value: false },
+            { option: "22", value: false },
+            { option: "26", value: false },
+            { option: "24", value: true },
         ]
     },
 ];
+
+// We have 3 Id and question, option-btn and next-button, we will initiate these variables
+const questionElement = document.getElementById("question");
+const optionButtons = document.getElementById("option-btn");
+const  nextButton = document.getElementById("next-button");
+
+// Setting up the variables to store the scores and the question index
+let currentQuestionIndex = 0;
+let score = 0; 
+
+/**
+ * This function will strat the game 
+ * Index of the question is 0 and score is also 0
+ */
+
+function startGame(){
+    currentQuestionIndex = 0;
+    score = 0;
+    nextButton.innerHTML = "Next";
+    showQuestion();
+}
+
+/**
+ * This function will show all the questions and options one by one 
+ * will update also the question number
+ * and will update the text
+ */
+
+function showQuestion(){
+
+    resetQuestionAndAnswer();
+
+    let currentQuestion = questions[currentQuestionIndex];
+    let questionNo = currentQuestionIndex + 1;
+    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+
+    //the code that updates the answers
+
+    currentQuestion.answers.forEach(answer => {
+
+        let button = document.createElement("button");// creating a button element
+        button.innerHTML = answer.option;
+
+        button.classList.add("btn");   // adding a class to that button
+        optionButtons.appendChild(button);   // display the button inside the div
+        if (answer.value) {
+            button.dataset.value = answer.value;
+        }
+    });
+}
+/**
+ * this function will reset all the questions and answers
+ */
+function resetQuestionAndAnswer(){
+
+while (optionButtons.firstChild) {
+    optionButtons.removeChild(optionButtons.firstChild);
+  }
+}
+
+startGame();
