@@ -8,16 +8,17 @@
 /* General styles */
 body {
     min-height: 100vh;
-    background: url(/assets/images/Banner-image30-13.jpg);
+    background: url(/assets/images/main-image.jpg) no-repeat center/cover;
     font-family: 'Inter', sans-serif;
+    
     
 }
 .heading{
     text-align: center;
-    font-size: 2rem;
+    font-size: 2.5rem;
     padding: 20px;
     background: #DAD937;
-    color: #1E3BC8;
+    color: #0c2bc4;
     width: 90%;
     max-width: 470px;
     margin: 50px auto 10px;
@@ -26,13 +27,13 @@ body {
     
 }
 .quiz-area {
-    background-color: rgba(54, 44, 81, 0.8);
+    background-color: rgba(54, 44, 81, 0.9);
     color: #d8e8d2;
     border-radius: 10px;
     text-align: center;
     padding: 30px;
     margin: 50px auto 15px;
-    max-width: 470px;
+    max-width: 500px;
     width: 90%;
 }
 .quiz-area h2 {
@@ -42,10 +43,10 @@ body {
 }
 .btn{
     background: #d8e8d2;
-    font-weight: 500;
+    font-weight: 600;
     width: 100%;
     border: 1px solid #F9F871;
-    color: rgb(54, 44, 81);
+    color: rgb(24, 6, 72);
     padding: 10px;
     margin: 10px 0;
     text-align: left;
@@ -54,18 +55,25 @@ body {
     transition: all 0.3s;
 }
 .btn:hover{
-    background: #F9F871;
+    background: #f1ecf4;
 }
 
 #next-button{
-    background: rgb(89, 42, 217);
-    color: #d8e8d2;
-    font-weight: 500;
+    background: #59044e;
+    color:#d8e8d2;
+    font-weight: 450;
     width: 150px;
-    height: 30px;
+    height: 40px;
     border: 1;
     border-radius: 20px;
     margin: 20px auto 0;
     cursor: pointer;
-    display: none;
+    font-weight: 550;
+    font-size: 15px;
+    
+}
+#next-button:hover{
+    color: #59044e;
+    background-color: #d8e8d2;
+    
 }
