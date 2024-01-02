@@ -8,9 +8,10 @@
 /* General styles */
 body {
     min-height: 100vh;
-    background: url(../images/Banner-image30-13.jpg) no-repeat center/cover;
+    background: url(../images/main-image.jpg) no-repeat center/cover;
     font-family: 'Inter', sans-serif;
-    
+    width: 100%;
+    height: 100px;
     
 }
 .heading{
@@ -38,7 +39,7 @@ body {
     
 }
 .quiz-area h2 {
-    font-size: 22px;
+    font-size: 25px;
     padding-bottom: 10px;
     border-bottom: 1px solid;
 }
@@ -77,6 +78,4 @@ body {
     color: #59044e;
     background-color: #d8e8d2;
     
-}
-
-
+};
