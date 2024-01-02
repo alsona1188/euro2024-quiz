@@ -15,16 +15,14 @@ body {
 }
 .heading{
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 37px;
     padding: 20px;
     background: #DAD937;
     color: #0c2bc4;
-    width: 90%;
-    max-width: 470px;
+    max-width: 480px;
     margin: 50px auto 10px;
-    border-radius: 10px;
-   
-    
+    border-radius: 6px;
+
 }
 .quiz-area {
     background-color: rgba(54, 44, 81, 0.9);
@@ -35,9 +33,7 @@ body {
     margin: 50px auto 15px;
     max-width: 500px;
     width: 90%;
-    height: 430px;
-
-    
+    height: 430px;  
 }
 .quiz-area h2 {
     font-size: 25px;
@@ -56,7 +52,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.2s;
-    font-size: 17px;
+    
 }
 .btn:hover{
     background: #f1ecf4;
@@ -68,7 +64,7 @@ body {
     width: 150px;
     height: 40px;
     border: 1;
-    border-radius: 20px;
+    border-radius: 10px;
     margin: 20px auto 0;
     cursor: pointer;
     font-weight: 600;
