@@ -13,17 +13,7 @@ body {
     width: 100%;
     
 }
-.heading{
-    text-align: center;
-    font-size: 37px;
-    padding: 20px;
-    background: #DAD937;
-    color: #0c2bc4;
-    max-width: 480px;
-    margin: 50px auto 10px;
-    border-radius: 6px;
 
-}
 .quiz-area {
     background-color: rgba(54, 44, 81, 0.9);
     color: #d8e8d2;
@@ -31,14 +21,30 @@ body {
     text-align: center;
     padding: 30px;
     margin: 50px auto 15px;
-    max-width: 500px;
+    max-width: 600px;
     width: 90%;
-    height: 430px;  
-}
-.quiz-area h2 {
+    
+  }
+  .quiz-area h1 {
+      text-align: center;
+      font-size: 35px;
+      padding: 20px;
+      background: #DAD937;
+      color: #0c2bc4;
+      font-weight: 700;
+      margin: 40px auto 10px;
+      border-radius: 6px;
+
+  }
+  .main-question{
+    padding: 20px 0;
+  }
+
+.main-question h2 {
     font-size: 25px;
     padding-bottom: 10px;
-    border-bottom: 1px solid;
+    color: #d8e8d2;
+    border-bottom: 1px solid #d8e8d2;
 }
 .btn{
     background: #d8e8d2;
