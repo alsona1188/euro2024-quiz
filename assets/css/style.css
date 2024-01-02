@@ -65,15 +65,15 @@ body {
 #next-button{
     background: #59044e;
     color:#d8e8d2;
-    font-weight: 450;
     width: 150px;
     height: 40px;
     border: 1;
     border-radius: 20px;
     margin: 20px auto 0;
     cursor: pointer;
-    font-weight: 550;
-    font-size: 15px;
+    font-weight: 600;
+    font-size: 17px;
+   
     
 }
 #next-button:hover{
