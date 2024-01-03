@@ -94,7 +94,7 @@ const questions = [
     },
 ];
 
-// We have 3 Id and question, option-btn and next-button, we will initiate these variables
+// We have 4 Id and question, option-btn,next-button and info,  we will initiate these variables
 const questionElement = document.getElementById("question");
 const optionButtons = document.getElementById("option-btn");
 const  nextButton = document.getElementById("next-button");
@@ -140,8 +140,9 @@ function showQuestion(){
         button.classList.add("btn");   // adding a class to that button
         optionButtons.appendChild(button);   // display the button inside the div
         if (answer.value) {
-            button.dataset.value = answer.value;
+            button.dataset.value = answer.value; // true or false will be added here 
         }
+        button.addEventListener("click", selectOption); 
     });
 }
 /**
@@ -156,6 +157,31 @@ while (optionButtons.firstChild) {
 
 function infoAlert(){
     alert("This is a simple quiz for all the fans of Euro Cup 2024!! In total are 10 questions. We wish you luck!!");
+
+}
+
+function selectOption(e){
+    const selectedOption = e.target;
+    const isTrue = selectedOption.dataset.value === "true";
+    if (isTrue){
+        // will add the class name "is-true"
+        selectedOption.classList.add("is-true");
+    }else {
+        // will add the class name "is-false"
+        selectedOption.classList.add("is-false");
+    }
+    
+    /**
+     * when we click an option, if it is false will search for the true one 
+     * and will disable all the other button  */ 
+    
+    Array.from(optionButtons.children).forEach( button => {
+        if(button.dataset.value === "true"){
+            button.classList.add("is-true");
+        }
+        button.disabled = true;
+    });
+    
 
 }
 
