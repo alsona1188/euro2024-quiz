@@ -98,7 +98,7 @@ const questions = [
 const questionElement = document.getElementById("question");
 const optionButtons = document.getElementById("option-btn");
 const  nextButton = document.getElementById("next-button");
-const ruleButton = document.getElementById("info");
+const infoButton = document.getElementById("info");
 
 // Setting up the variables to store the scores and the question index
 let currentQuestionIndex = 0;
@@ -159,13 +159,17 @@ function infoAlert(){
     alert("This is a simple quiz for all the fans of Euro Cup 2024!! In total are 10 questions. We wish you luck!!");
 
 }
-
+/**
+ * When we will click on the buttons it will add the selected option on the variable 
+ * and than it will check for the dataset values if it is true or not
+ */
 function selectOption(e){
     const selectedOption = e.target;
     const isTrue = selectedOption.dataset.value === "true";
     if (isTrue){
         // will add the class name "is-true"
         selectedOption.classList.add("is-true");
+        score++; // will increase the score if the option is correct
     }else {
         // will add the class name "is-false"
         selectedOption.classList.add("is-false");
@@ -184,5 +188,41 @@ function selectOption(e){
     
 
 }
+
+function showScore() {
+    resetQuestionAndAnswer()
+    questionElement.innerHTML = `End of the Game! You have scored ${score} out of ${questions.length}!`;
+    nextButton.innerHTML = "Restart";
+    
+}
+
+/**
+ * This function will handle the next button.
+ * when there is no more question it will show the score
+ */
+
+function handleNextButton(){
+    // will increase the question index by 1
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length){
+        showQuestion();
+    } else {
+        showScore();
+    }
+}
+
+/**
+ * Function for the next button with event listener click
+ */
+ nextButton.addEventListener("click", () => {
+     if(currentQuestionIndex < questions.length){
+        handleNextButton();
+     } else {
+        // if there is no question, when we click on the button will restart the quiz
+        startGame();
+     }
+
+ });
+
 
 startGame();

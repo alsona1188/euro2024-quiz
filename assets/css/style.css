@@ -15,6 +15,7 @@ body {
 }
 
 .quiz-area {
+
     background-color: rgba(54, 44, 81, 0.9);
     color: #d8e8d2;
     border-radius: 10px;
@@ -23,7 +24,7 @@ body {
     margin: 50px auto 15px;
     max-width: 600px;
     width: 90%;
-    height: 550px;
+    height: 600px;
 
 }
 
