@@ -84,7 +84,7 @@ body {
     background-color: #d8e8d2;
     
 }
-#rule-game {
+#info {
     background: #59044e;
     color: #d8e8d2;
     width: 150px;
@@ -99,7 +99,7 @@ body {
 
 }
 
-#rule-game:hover {
+#info:hover {
     color: #59044e;
     background-color: #d8e8d2;
 
@@ -115,7 +115,7 @@ body {
         #next-button{
             width: 110px;
         }
-        #rule-game{
+        #info{
             width: 110px;
         }
 }
@@ -131,7 +131,7 @@ body {
         width: 90px;
     }
 
-    #rule-game {
+    #info{
         width: 90px;
     }
 

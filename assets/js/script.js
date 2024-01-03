@@ -98,6 +98,7 @@ const questions = [
 const questionElement = document.getElementById("question");
 const optionButtons = document.getElementById("option-btn");
 const  nextButton = document.getElementById("next-button");
+const ruleButton = document.getElementById("info");
 
 // Setting up the variables to store the scores and the question index
 let currentQuestionIndex = 0;
@@ -151,6 +152,11 @@ function resetQuestionAndAnswer(){
 while (optionButtons.firstChild) {
     optionButtons.removeChild(optionButtons.firstChild);
   }
+}
+
+function infoAlert(){
+    alert("This is a simple quiz for all the fans of Euro Cup 2024!! In total are 10 questions. We wish you luck!!");
+
 }
 
 startGame();
