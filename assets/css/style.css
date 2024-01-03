@@ -45,7 +45,7 @@ body {
     font-size: 25px;
     padding-bottom: 10px;
     color: #d8e8d2;
-    border-bottom: 1px solid #d8e8d2;
+    border-bottom: 2px solid #d8e8d2;
 }
 .btn{
     background: #d8e8d2;
@@ -102,5 +102,37 @@ body {
 #rule-game:hover {
     color: #59044e;
     background-color: #d8e8d2;
+
+}
+
+@media screen and (max-width: 500px) {
+    .quiz-area{
+        display: block;
+        width: 90%;
+        height: 700px;
+    }
+
+        #next-button{
+            width: 110px;
+        }
+        #rule-game{
+            width: 110px;
+        }
+}
+@media screen and (max-width: 300px) {
+
+.quiz-area {
+        display: block;
+        width: 90%;
+        height: 730px;
+    }
+
+    #next-button {
+        width: 90px;
+    }
+
+    #rule-game {
+        width: 90px;
+    }
 
 }
