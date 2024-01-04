@@ -116,6 +116,8 @@ function startGame(){
     showQuestion();
 }
 
+
+
 /**
  * This function will show all the questions and options one by one 
  * will update also the question number
@@ -125,6 +127,7 @@ function startGame(){
 function showQuestion(){
 
     resetQuestionAndAnswer();
+  
 
     let currentQuestion = questions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
@@ -149,7 +152,7 @@ function showQuestion(){
  * this function will reset all the questions and answers
  */
 function resetQuestionAndAnswer(){
-
+   
 while (optionButtons.firstChild) {
     optionButtons.removeChild(optionButtons.firstChild);
   }
@@ -173,6 +176,7 @@ function selectOption(e){
     }else {
         // will add the class name "is-false"
         selectedOption.classList.add("is-false");
+        
     }
     
     /**
@@ -191,9 +195,14 @@ function selectOption(e){
 
 function showScore() {
     resetQuestionAndAnswer()
-    questionElement.innerHTML = `End of the Game! You have scored ${score} out of ${questions.length}!`;
-    nextButton.innerHTML = "Restart";
     
+    nextButton.innerHTML = "Restart";
+    if (score === questions.length){
+        questionElement.innerHTML = `Congratulations!! <i class="fa-solid fa-medal fa-beat" style="color: #f0ea47;"></i> You won a ticket for Euro 2024!!`
+    }else{
+        questionElement.innerHTML = `End of the Quiz! You have scored <i class="fa-solid fa-face-smile-wink" style="color: #d3a136;"></i> ${score} out of ${questions.length}!`;
+    }
+
 }
 
 /**
@@ -206,6 +215,7 @@ function handleNextButton(){
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length){
         showQuestion();
+
     } else {
         showScore();
     }
