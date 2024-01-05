@@ -79,7 +79,6 @@ body {
     color: #d8e8d2;
     width: 150px;
     height: 40px;
-    border: 1;
     border-radius: 10px;
     margin: 10px auto 0;
     cursor: pointer;
@@ -100,20 +99,17 @@ body {
     color: #d8e8d2;
     width: 150px;
     height: 40px;
-    border: 1;
     border-radius: 10px;
     margin: 10px auto 0;
     cursor: pointer;
     font-weight: 600;
     float: left;
-    box-shadow: 0px 20px 40px rgba (24, 6, 72, 0.4);
-
+    box-shadow: 0px 20px 40px rgba(24, 6, 72, 0.4);
 }
 
 #info:hover {
     color: #59044e;
     background-color: #d8e8d2;
-
 }
 
 .is-true {

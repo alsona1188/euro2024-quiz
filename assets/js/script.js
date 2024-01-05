@@ -47,7 +47,7 @@ const questions = [
             { option: "England", value: false },
         ]
     },
-{
+    {
         question: "How many times has Germany won the EURO cup?",
         answers: [
             { option: "5", value: false },
@@ -97,19 +97,19 @@ const questions = [
 // We have 4 Id and question, option-btn,next-button and info,  we will initiate these variables
 const questionElement = document.getElementById("question");
 const optionButtons = document.getElementById("option-btn");
-const  nextButton = document.getElementById("next-button");
-const infoButton = document.getElementById("info");
+const nextButton = document.getElementById("next-button");
+
 
 // Setting up the variables to store the scores and the question index
 let currentQuestionIndex = 0;
-let score = 0; 
+let score = 0;
 
 /**
  * This function will strat the game 
  * Index of the question is 0 and score is also 0
  */
 
-function startGame(){
+function startGame() {
     currentQuestionIndex = 0;
     score = 0;
     nextButton.innerHTML = "Next";
@@ -124,10 +124,10 @@ function startGame(){
  * and will update the text
  */
 
-function showQuestion(){
+function showQuestion() {
 
     resetQuestionAndAnswer();
-  
+
 
     let currentQuestion = questions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
@@ -145,20 +145,20 @@ function showQuestion(){
         if (answer.value) {
             button.dataset.value = answer.value; // true or false will be added here 
         }
-        button.addEventListener("click", selectOption); 
+        button.addEventListener("click", selectOption);
     });
 }
 /**
  * this function will reset all the questions and answers
  */
-function resetQuestionAndAnswer(){
-   
-while (optionButtons.firstChild) {
-    optionButtons.removeChild(optionButtons.firstChild);
-  }
+function resetQuestionAndAnswer() {
+
+    while (optionButtons.firstChild) {
+        optionButtons.removeChild(optionButtons.firstChild);
+    }
 }
 
-function infoAlert(){
+function infoAlert() {
     alert("This is a simple quiz for all the fans of Euro Cup 2024!! In total are 10 questions. We wish you luck!!");
 
 }
@@ -166,40 +166,40 @@ function infoAlert(){
  * When we will click on the buttons it will add the selected option on the variable 
  * and than it will check for the dataset values if it is true or not
  */
-function selectOption(e){
+function selectOption(e) {
     const selectedOption = e.target;
     const isTrue = selectedOption.dataset.value === "true";
-    if (isTrue){
+    if (isTrue) {
         // will add the class name "is-true"
         selectedOption.classList.add("is-true");
         score++; // will increase the score if the option is correct
-    }else {
+    } else {
         // will add the class name "is-false"
         selectedOption.classList.add("is-false");
-        
+
     }
-    
+
     /**
      * when we click an option, if it is false will search for the true one 
-     * and will disable all the other button  */ 
-    
-    Array.from(optionButtons.children).forEach( button => {
-        if(button.dataset.value === "true"){
+     * and will disable all the other button  */
+
+    Array.from(optionButtons.children).forEach(button => {
+        if (button.dataset.value === "true") {
             button.classList.add("is-true");
         }
         button.disabled = true;
     });
-    
+
 
 }
 
 function showScore() {
-    resetQuestionAndAnswer()
-    
+    resetQuestionAndAnswer();
+
     nextButton.innerHTML = "Restart";
-    if (score === questions.length){
-        questionElement.innerHTML = `Congratulations!! <i class="fa-solid fa-medal fa-beat" style="color: #f0ea47;"></i> You won a ticket for Euro 2024!!`
-    }else{
+    if (score === questions.length) {
+        questionElement.innerHTML = `Congratulations!! <i class="fa-solid fa-medal fa-beat" style="color: #f0ea47;"></i> You won a ticket for Euro 2024!!`;
+    } else {
         questionElement.innerHTML = `End of the Quiz! You have scored <i class="fa-solid fa-face-smile-wink" style="color: #d3a136;"></i> ${score} out of ${questions.length}!`;
     }
 
@@ -210,10 +210,10 @@ function showScore() {
  * when there is no more question it will show the score
  */
 
-function handleNextButton(){
+function handleNextButton() {
     // will increase the question index by 1
     currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length){
+    if (currentQuestionIndex < questions.length) {
         showQuestion();
 
     } else {
@@ -224,15 +224,15 @@ function handleNextButton(){
 /**
  * Function for the next button with event listener click
  */
- nextButton.addEventListener("click", () => {
-     if(currentQuestionIndex < questions.length){
+nextButton.addEventListener("click", () => {
+    if (currentQuestionIndex < questions.length) {
         handleNextButton();
-     } else {
+    } else {
         // if there is no question, when we click on the button will restart the quiz
         startGame();
-     }
+    }
 
- });
+});
 
 
 startGame();
