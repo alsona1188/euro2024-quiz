@@ -101,8 +101,8 @@ let nextButton = document.getElementById("next-button");
 let correctSound = document.getElementById('goal-sound');
 let incorrectSound = document.getElementById('nongoal-sound');
 let gameOverSound = document.getElementById('gameover-sound');
-let message = document.getElementById('popup');
 let infoButton = document.getElementById('info');
+let message = document.getElementById("popup");
 
 // Setting up the variables to store the scores and the question index
 let currentQuestionIndex = 0;
@@ -118,9 +118,10 @@ function startGame() {
     score = 0;
     nextButton.innerHTML = "Next";
     showQuestion();
+    infoButton.classList.remove("hide");
+    message.classList.remove("hide");
+   
 }
-
-
 
 /**
  * This function will show all the questions and options one by one 
@@ -163,15 +164,14 @@ function resetQuestionAndAnswer() {
 
 function infoAlert() {
         let text;
-        let person = prompt("Please enter your name:", "Harry Potter");
+        let person = prompt("Please enter your name:", "Champion");
         if (person == null || person == "") {
-            text = "User cancelled the prompt.";
+            text = "no name was entered";
         } else {
-            text = "Hello " + person + "! This is a simple quiz for all the fans of Europian Championship. We wish you all the luck!!";
+            text = "Welcome " + person + "! This is a simple quiz for all the fans of Europian Championship. We wish you luck!!";
            
         }
-    document.getElementById("popup").innerHTML = text;
-
+    message.innerHTML = text;
 
 }
 /**
@@ -230,9 +230,11 @@ function handleNextButton() {
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
         showQuestion();
+        message.classList.add("hide");
         
     } else {
         showScore();
+       
     }
 }
 
@@ -242,10 +244,14 @@ function handleNextButton() {
 nextButton.addEventListener("click", () => {
     if (currentQuestionIndex < questions.length) {
         handleNextButton();
-        
+        infoButton.classList.add("hide");
+
     } else {
         // if there is no question, when we click on the button will restart the quiz
         startGame();
+        message.classList.remove("hide");
+        message.innerHTML = "Lets try again!"
+        
     }
 
 });
