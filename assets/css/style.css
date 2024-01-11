@@ -122,11 +122,13 @@ body {
     background: #9E0E45;
     color: #d8e8d2;
 }
+
 /* For JS use*/
-.hide{
+.hide {
     display: none;
 }
-#popup{
+
+#popup {
     background-color: #59044e;
     border: 1.5px dashed #d8e8d2;
     font-weight: 400;

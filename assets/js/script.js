@@ -121,7 +121,7 @@ function startGame() {
     showQuestion();
     infoButton.classList.remove("hide");
     message.classList.remove("hide");
-   
+
 }
 
 /**
@@ -164,16 +164,15 @@ function resetQuestionAndAnswer() {
 }
 
 function infoAlert() {
-    
-        popupSound.play();
-        let text;
-        let person = prompt("Please enter your name:", "Champion");
-        if (person == null || person == "") {
-            text = "no name was entered";
-        } else {
-            text = "Welcome " + person + "! This is a simple quiz for all the fans of Europian Championship. We wish you luck!!";
-           
-        }
+
+    popupSound.play();
+    let text;
+    let person = prompt("Please enter your name:", "Champion");
+    if (person == null || person == "") {
+        text = "no name was entered";
+    } else {
+        text = "Welcome " + person + "! This is a simple quiz for all the fans of Europian Championship. We wish you luck!!";
+    }
     message.innerHTML = text;
 
 }
@@ -234,10 +233,10 @@ function handleNextButton() {
     if (currentQuestionIndex < questions.length) {
         showQuestion();
         message.classList.add("hide");
-        
+
     } else {
         showScore();
-       
+
     }
 }
 
@@ -253,11 +252,10 @@ nextButton.addEventListener("click", () => {
         // if there is no question, when we click on the button will restart the quiz
         startGame();
         message.classList.remove("hide");
-        message.innerHTML = "Lets try again!"
-        
+        message.innerHTML = "Lets try again!";
     }
 
 });
 
-
 startGame();
+
