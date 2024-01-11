@@ -94,7 +94,7 @@ const questions = [
     },
 ];
 
-// We have 4 Id and question, option-btn,next-button and info,  we will initiate these variables
+// initiating these variables for all elements's id 
 let questionElement = document.getElementById("question");
 let optionButtons = document.getElementById("option-btn");
 let nextButton = document.getElementById("next-button");
@@ -163,6 +163,11 @@ function resetQuestionAndAnswer() {
     }
 }
 
+/**
+ * This is a prompt function which
+ * it is asking the user to insert the name
+ * and diplays a message as well
+ */
 function infoAlert() {
 
     popupSound.play();
@@ -186,10 +191,12 @@ function selectOption(e) {
     if (isTrue) {
         // will add the class name "is-true"
         selectedOption.classList.add("is-true");
+        // Will play a sound for the true answer
         correctSound.play();
         score++; // will increase the score if the option is correct
     } else {
         // will add the class name "is-false"
+        // will play a sound for the false answer
         selectedOption.classList.add("is-false");
         incorrectSound.play();
 
@@ -208,6 +215,11 @@ function selectOption(e) {
 
 
 }
+
+/**
+ * This function shows the final page with the scores
+ * it is added also a game over sound
+ */
 
 function showScore() {
     resetQuestionAndAnswer();
@@ -250,6 +262,7 @@ nextButton.addEventListener("click", () => {
 
     } else {
         // if there is no question, when we click on the button will restart the quiz
+        // it will be displayed a message as well
         startGame();
         message.classList.remove("hide");
         message.innerHTML = "Lets try again!";
