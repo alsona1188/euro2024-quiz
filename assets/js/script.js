@@ -95,12 +95,14 @@ const questions = [
 ];
 
 // We have 4 Id and question, option-btn,next-button and info,  we will initiate these variables
-const questionElement = document.getElementById("question");
-const optionButtons = document.getElementById("option-btn");
-const nextButton = document.getElementById("next-button");
+let questionElement = document.getElementById("question");
+let optionButtons = document.getElementById("option-btn");
+let nextButton = document.getElementById("next-button");
 let correctSound = document.getElementById('goal-sound');
 let incorrectSound = document.getElementById('nongoal-sound');
 let gameOverSound = document.getElementById('gameover-sound');
+let message = document.getElementById('popup');
+let infoButton = document.getElementById('info');
 
 // Setting up the variables to store the scores and the question index
 let currentQuestionIndex = 0;
@@ -129,7 +131,6 @@ function startGame() {
 function showQuestion() {
 
     resetQuestionAndAnswer();
-
 
     let currentQuestion = questions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
@@ -161,7 +162,16 @@ function resetQuestionAndAnswer() {
 }
 
 function infoAlert() {
-    alert("This is a simple quiz for all the fans of Euro Cup 2024!! In total are 10 questions. We wish you luck!!");
+        let text;
+        let person = prompt("Please enter your name:", "Harry Potter");
+        if (person == null || person == "") {
+            text = "User cancelled the prompt.";
+        } else {
+            text = "Hello " + person + "! This is a simple quiz for all the fans of Europian Championship. We wish you all the luck!!";
+           
+        }
+    document.getElementById("popup").innerHTML = text;
+
 
 }
 /**
@@ -200,7 +210,7 @@ function selectOption(e) {
 function showScore() {
     resetQuestionAndAnswer();
     gameOverSound.play();
-
+    infoButton.classList.add('hide');
     nextButton.innerHTML = "Restart";
     if (score === questions.length) {
         questionElement.innerHTML = `Congratulations!! <i class="fa-solid fa-medal fa-beat" style="color: #f0ea47;"></i> You won a ticket for Euro 2024!!`;
@@ -220,7 +230,7 @@ function handleNextButton() {
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
         showQuestion();
-
+        
     } else {
         showScore();
     }
@@ -232,6 +242,7 @@ function handleNextButton() {
 nextButton.addEventListener("click", () => {
     if (currentQuestionIndex < questions.length) {
         handleNextButton();
+        
     } else {
         // if there is no question, when we click on the button will restart the quiz
         startGame();

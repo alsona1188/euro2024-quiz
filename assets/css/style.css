@@ -122,6 +122,10 @@ body {
     background: #9E0E45;
     color: #d8e8d2;
 }
+/* For JS use*/
+.hide{
+    display: none;
+}
 
 @media screen and (max-width: 500px) {
     .quiz-area {
