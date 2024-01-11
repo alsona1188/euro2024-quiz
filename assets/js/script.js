@@ -103,6 +103,7 @@ let incorrectSound = document.getElementById('nongoal-sound');
 let gameOverSound = document.getElementById('gameover-sound');
 let infoButton = document.getElementById('info');
 let message = document.getElementById("popup");
+let popupSound = document.getElementById("popup-sound");
 
 // Setting up the variables to store the scores and the question index
 let currentQuestionIndex = 0;
@@ -163,6 +164,8 @@ function resetQuestionAndAnswer() {
 }
 
 function infoAlert() {
+    
+        popupSound.play();
         let text;
         let person = prompt("Please enter your name:", "Champion");
         if (person == null || person == "") {
