@@ -110,7 +110,7 @@ let currentQuestionIndex = 0;
 let score = 0;
 
 /**
- * This function will strat the game 
+ * This function will start the game 
  * Index of the question is 0 and score is also 0
  */
 
@@ -265,7 +265,7 @@ nextButton.addEventListener("click", () => {
         // it will be displayed a message as well
         startGame();
         message.classList.remove("hide");
-        message.innerHTML = "Lets try again!";
+        message.innerHTML = "Let's try again!";
     }
 
 });

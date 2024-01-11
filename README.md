@@ -30,6 +30,7 @@ You can visit the GitHub Repository [here](https://github.com/alsona1188/euro202
     - [Typography](#typography)
   - [Features](#features)
     - [General Features on each page](#general-features-on-each-page)
+    - [Future Implementations](#future-implementations)
    
 ### Common Usage
 
@@ -64,7 +65,55 @@ The page is responsive and contains:
 
 - Favicon of the Website, chosen to match the theme of the site.
 
-![screenshot of the favicon](document/)
+![screenshot of the favicon](document/favicon.JPG)
 
 - Landing Page
-  - This would be the first page the user would see, introducing the theme with an image, bakkground image and the instructions explaining how to play the g
+  - This would be the first page the user would see, introducing the theme with an heading and an icon, background image. There are two buttons that the user sees at the first sight.
+- ![screenshot of land page](document/land_page.JPG)
+
+- Quiz Area
+  - Here users can see directly the quiz. The quiz area has the main question and also 4 option for each question.
+  - Once the user selects an answer, different colours are displayed to show if they were correct.  The user is also given a 'next' button which allows the user to go onto the next question.
+
+![screenshot of questions and options](document/question-and-options.JPG)
+
+- Info and Next buttons
+ - The user can see directly two buttons.
+  
+![screenshot of info and next buttons](document/info-next-button.JPG)
+
+ - If the user clicks the info button, a pop up information will come up that will ask the user to add the username.
+  
+  ![screenshot of info and next buttons](document/popup_entername.JPG)
+  
+ - After entering the name an automatic message will display in the quiz area. This message will give a little information about the game.
+  
+![after entering the name](document/after_popup.JPG)
+
+- If no name is entered, so if the user closses with x, it will show the message "no name was entered".
+  
+![if no username is inserted](document/no-username.JPG)  
+
+- Result Page
+  - In the last page will be 2 different message displayed.
+  - The next button will be converted to restart button.
+  - A sound effect is added on the last page, which indicates that the game is over.
+  - The first case is when the user finds all the questions.
+  
+![screenshot of all correct answers](document/all-correct-answers.JPG)
+
+  - The second case is when the user will not find all the correct answers.
+  
+![screenshot of not all correct answers](document/not-all-correct.JPG)  
+
+  - After clicking the restart button, the info button will apear again and the message will change to "Let's try again"
+  
+![screenshot after restart](document/after-restart.JPG) 
+
+- Sound Effects
+  - The first sound is implemented when the user presses the info button. This helps give the user a sense of immersion into the game.
+  - The correct & incorrect sound effects are activated upon selecting an answer, helping to add excitement to the user's experience.
+
+### Future Implementations
+
+
