@@ -100,7 +100,7 @@ const optionButtons = document.getElementById("option-btn");
 const nextButton = document.getElementById("next-button");
 let correctSound = document.getElementById('goal-sound');
 let incorrectSound = document.getElementById('nongoal-sound');
-
+let gameOverSound = document.getElementById('gameover-sound');
 
 // Setting up the variables to store the scores and the question index
 let currentQuestionIndex = 0;
@@ -199,6 +199,7 @@ function selectOption(e) {
 
 function showScore() {
     resetQuestionAndAnswer();
+    gameOverSound.play();
 
     nextButton.innerHTML = "Restart";
     if (score === questions.length) {
