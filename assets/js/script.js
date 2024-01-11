@@ -98,6 +98,8 @@ const questions = [
 const questionElement = document.getElementById("question");
 const optionButtons = document.getElementById("option-btn");
 const nextButton = document.getElementById("next-button");
+let correctSound = document.getElementById('goal-sound');
+let incorrectSound = document.getElementById('nongoal-sound');
 
 
 // Setting up the variables to store the scores and the question index
@@ -172,10 +174,12 @@ function selectOption(e) {
     if (isTrue) {
         // will add the class name "is-true"
         selectedOption.classList.add("is-true");
+        correctSound.play();
         score++; // will increase the score if the option is correct
     } else {
         // will add the class name "is-false"
         selectedOption.classList.add("is-false");
+        incorrectSound.play();
 
     }
 

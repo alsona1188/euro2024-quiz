@@ -66,11 +66,11 @@ body {
 
 }
 
-.btn:hover:not([disabled]){
+.btn:hover:not([disabled]) {
     background: #f1ecf4;
 }
 
-.btn:disabled{
+.btn:disabled {
     cursor: no-drop;
 }
 
@@ -115,7 +115,7 @@ body {
 .is-true {
     background: #084F31;
     color: #d8e8d2;
-  
+
 }
 
 .is-false {
