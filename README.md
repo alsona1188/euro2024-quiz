@@ -31,6 +31,15 @@ You can visit the GitHub Repository [here](https://github.com/alsona1188/euro202
   - [Features](#features)
     - [General Features on each page](#general-features-on-each-page)
     - [Future Implementations](#future-implementations)
+  - [Testing](#testing)
+    - [Validator Testing](#validator-testing)
+    - [Lighthouse](#lighthouse)
+    - [Bugs](#bugs)
+  - [Deployment And Local Development](#deployment-and-local-development)
+    - [Deployment to GitHub pages](#deployment-to-github-pages)
+    - [Local Deployment](#local-deployment)
+      - [How to Fork](#how-to-fork)
+      - [How to Clone](#how-to-clone)
    
 ### Common Usage
 
@@ -116,4 +125,74 @@ The page is responsive and contains:
 
 ### Future Implementations
 
+- A multi-player feature for participants to compete remotely head-to-head on different devices along with the possibility for them to challenge participants to these head-to-head games.
+- I would like to create different levels of difficulty for the game.
 
+ ## Testing
+- I tested that this page works in different browsers: Crome, Firefox, Safari.
+- I confirmed that this project is responsive, looks good and functions on all standard screen sizes using the devtools device toolbar.
+  
+### Validator Testing
+
+- **[HTML Validator](https://validator.w3.org/)**
+
+  - No errors were returned when passing through the official W3C validator.
+
+![HTML validator](document/html-validator.JPG) 
+
+- **[CSS Validator](https://jigsaw.w3.org/css-validator/)**
+  - No errors were returned when passing through the official Jigsaw validator.
+
+![CSS validator](document/css-validator.JPG)
+  
+- **[JSHint](https://jshint.com/)**
+  - No errors were returned when passing through the official jshint validator.
+- The info returned is:
+  - There are 10 functions in this file.
+  - Function with the largest signature take 1 arguments, while the median is 0.
+  - Largest function has 9 statements in it, while the median is 6.
+  - The most complex function has a cyclomatic complexity value of 3 while the median is 2.
+
+### Lighthouse
+- Performance - How the page performs whilst loading.
+- Accessibility - Is the site acccessible for all users and how can it be improved.
+- Best Practices - Site conforms to industry best practices.
+- SEO - Search engine optimisation. Is the site optimised for search engine result rankings.
+
+![lighthouse screenshot](document/lighthouse.JPG) 
+
+### Bugs
+ - No bugs were found.
+
+ ## Deployment And Local Development
+
+### Deployment to GitHub pages
+
+The site is deployed using GitHub Pages. To deploy using GitHub pages:
+
+1. Open the project repository.
+2. Click on "Settings" on the navigation bar under the repository title.
+3. Click on "Pages" in the left-hand navigation panel.
+4. Under "Source", choose which branch to deploy. This should be Main for newer repositories.
+5. Choose which folder to deploy from, usually "/root".
+6. Click "Save", then wait for it to be deployed. It can take some time for the page to be fully deployed.
+7. Your URL will be displayed above "Source".
+
+### Local Deployment
+
+#### How to Fork
+
+1. Copy the link to this repository.
+2. Log in or sign up to your GitHub account and click on the **Fork** button on the top-right corner.
+3. You should now have a copy included in your account.
+
+#### How to Clone
+
+1. Copy the link to this repository.
+2. Log in or sign up to your GitHub account and click on the **Code** button.
+3. You are given to option to clone using HTTPS or GitHub CLI and copy the link.
+
+
+
+
+  
