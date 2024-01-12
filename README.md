@@ -35,6 +35,7 @@ You can visit the GitHub Repository [here](https://github.com/alsona1188/euro202
     - [Validator Testing](#validator-testing)
     - [Lighthouse](#lighthouse)
     - [Bugs](#bugs)
+  - [Technologies Used](#technologies-used)
   - [Deployment And Local Development](#deployment-and-local-development)
     - [Deployment to GitHub pages](#deployment-to-github-pages)
     - [Local Deployment](#local-deployment)
@@ -163,6 +164,19 @@ The page is responsive and contains:
 
 ### Bugs
  - No bugs were found.
+
+ ## Technologies Used
+
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+- [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+- [Google Fonts](https://fonts.google.com/) was used to import fonts into the style.css.
+- [Font Awesome](https://fontawesome.com/) was used to add icons.
+- [GitHub](https://github.com/) was used to save and store the files for the website.
+- [Am I Responsive](https://ui.dev/amiresponsive) was used to display the website on different devices.
+- [German website](https://www.dfb.de/en/news/detail/euro-2024-mascot-unveiled-252717/?no_cache=1&cHash=83982e31f16d14b0de8118a0ad7bc1ef) was used to search and load the background image.
+- [Favicon.io](https://favicon.io/favicon-generator/) was used to create the favicon.
+- [img2go](https://www.img2go.com/resize-image) was used to create the favicon.
 
  ## Deployment And Local Development
 
