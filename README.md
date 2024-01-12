@@ -206,7 +206,31 @@ The site is deployed using GitHub Pages. To deploy using GitHub pages:
 2. Log in or sign up to your GitHub account and click on the **Code** button.
 3. You are given to option to clone using HTTPS or GitHub CLI and copy the link.
 
+## Credits
 
+### Content
+
+- The information I got for my questions mostly came from [UEFA wikipedia](https://en.wikipedia.org/wiki/UEFA_Euro_2024)
+- Some concepts and parts of code were taken from a [tutorial by 'GreatStack'](https://www.youtube.com/watch?v=PBcqGxrr9g8&t=770s)..
+
+- [Stackoverflow](https://stackoverflow.com/questions/9419263/how-to-play-audio) and their ideas of how to implement audios.
+
+### Media
+
+- The sound media files were all taken from [pixabay](https://pixabay.com/sound-effects/search/sound/).
+- [German website](https://www.dfb.de/en/news/detail/euro-2024-mascot-unveiled-252717/?no_cache=1&cHash=83982e31f16d14b0de8118a0ad7bc1ef) was used to take the background image.
+
+## Acknowledgements
+
+I would like to acknowledge the following people who have been a huge help for this project:
+
+-  [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/) - My Code Institute Mentor for his advices and expertise.
+
+- The Slack community of Code Institute for their help and support.
+
+Alsona Natsi 2024.
+
+[Back to top](<#contents>)
 
 
   
