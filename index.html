@@ -30,26 +30,34 @@
   </head>
 
   <body>
+    <!-- Start button -->
     <div id="start-page">
       <div class="quiz-area">
         <h1><i class="fa-regular fa-futbol fa-spin" style="color: #1a7426"></i> QUIZ EURO 2024</h1>
+        <p>This is a simple quiz for all the fans of Europian Championship!</p>
+        <div id="welcome-section">
+          <label for="user-input">Please enter your name:</label><br>
+          <input type="text" id="user-input" placeholder="Enter your name"><br>
+          <button id="submit-btn">Submit</button>
+      </div>
         <button id="start-button">Start Quiz</button>
         <button id="instructions-button">Instructions</button>
       </div>
-  
+      
+      <!-- Instruction button -->
       <div class="instructions" id="instruction-list" style="display: none;">
-        <h2>How to play the game: </h2>
+        <h2>How to play: </h2>
         <ul>
-          <li>- You can start the game by clicking start button</li>
-          <li>- In total are 10 questions. Each question has 4 alternatives.</li>
-          <li>- Click the "Next" button to move to the next question.</li>
-          <li>- After answering all questions, your score will be displayed.</li>
-          <li>- If you answer all the questions correctly, You will win a ticket!</li>
+          <li>- The quiz consists of 10 questions, each offering 4 possible answers.</li>
+          <li>- Use the "Next" button to progress to the following question.</li>
+          <li>- Once you've answered all the questions, your final score will be revealed.</li>
+          <li>- Achieve a perfect score to win a ticket!</li>
         </ul>
         <button id="close-instructions">close</button>
       </div>
     </div>
-  
+
+    <!-- Quiz content area  --> 
     <div id="quiz-content" style="display: none;">
       <div class="quiz-area">
         <h2 id="question">Question goes here</h2>
@@ -62,10 +70,7 @@
         <button id="next-button">Next</button>
       </div>
     </div>
-  
-    <audio id="popup-sound" class="hide">
-      <source src="sounds/popup-sound.mp3" type="audio/mp3">
-    </audio>
+
     <audio id="goal-sound" class="hide">
       <source src="sounds/goal-sound.mp3" type="audio/mp3">
     </audio>

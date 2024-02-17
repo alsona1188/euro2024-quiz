@@ -95,6 +95,8 @@ const questions = [
 ];
 
 // initiating these variables for all elements's id 
+const userInput = document.getElementById('user-input');
+const welcomeSection = document.getElementById('welcome-section');
 const startPage = document.getElementById("start-page");
 const quizContent = document.getElementById("quiz-content");
 const startButton = document.getElementById("start-button");
@@ -107,13 +109,30 @@ let nextButton = document.getElementById("next-button");
 let correctSound = document.getElementById('goal-sound');
 let incorrectSound = document.getElementById('nongoal-sound');
 let gameOverSound = document.getElementById('gameover-sound');
-let infoButton = document.getElementById('info');
-let message = document.getElementById("popup");
-let popupSound = document.getElementById("popup-sound");
 
 // Setting up the variables to store the scores and the question index
 let currentQuestionIndex = 0;
 let score = 0;
+
+ // Add event listener to the submit button
+ document.getElementById('submit-btn').addEventListener('click', function() {
+    // Get the value entered by the user
+    const userName = userInput.value.trim();
+
+    // Check if the user entered a name
+    if (userName !== '') {
+        // Hide the input and button
+        userInput.style.display = 'none';
+        this.style.display = 'none';
+
+        // Display the welcome message
+        const welcomeMessage = document.createElement('h3');
+        welcomeMessage.textContent = `Welcome, ${userName}!`;
+        welcomeSection.appendChild(welcomeMessage);
+    } else {
+        alert('Please enter your name.'); // Show an alert if the input is empty
+    }
+});
 
 /**
  * This function will start the game 
@@ -291,4 +310,3 @@ nextButton.addEventListener("click", () => {
 });
 
 startGame();
-

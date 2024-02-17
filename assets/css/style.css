@@ -15,6 +15,7 @@ body {
 }
 
 .quiz-area {
+
     position: relative;
     background-color: rgba(54, 44, 81, 0.9);
     color: #d8e8d2;
@@ -24,7 +25,7 @@ body {
     margin: 50px auto 15px;
     max-width: 600px;
     width: 90%;
-    height: 580px;
+    height: 500px;
 
 }
 
@@ -37,28 +38,29 @@ body {
     font-weight: 700;
     margin: 40px auto 10px;
     border-radius: 6px;
+    box-shadow: 0px 20px 40px rgba(194, 188, 210, 0.4);
 
 }
+p{
+    font-size: 18px;
+    margin: 10px auto;
+    color: aliceblue;
+}
 
-.main-question {
+#question {
     padding: 20px 0;
+    margin: 30px auto 10px;
 }
 
-.main-question h2 {
-    font-size: 25px;
-    padding-bottom: 10px;
-    color: #d8e8d2;
-    border-bottom: 2px solid #d8e8d2;
-}
 
 .btn {
     background: #d8e8d2;
     font-weight: 650;
-    width: 100%;
+    width: 40%;
     border: 1px solid #F9F871;
     color: rgb(24, 6, 72);
     padding: 10px;
-    margin: 10px 0;
+    margin: 10px 20px 20px 10px;
     text-align: left;
     border-radius: 5px;
     cursor: pointer;
@@ -99,7 +101,7 @@ body {
     display: block;
     width: 200px;
     height: 70px;
-    margin: 10px auto 0;
+    margin: 20px auto; /* Center horizontally */
     cursor: pointer;
     font-weight: 700;
     font-size: 16px;
@@ -107,7 +109,7 @@ body {
     border-radius: 10px;
     background: #59044e;
     color: #d8e8d2;
-    box-shadow: 0px 20px 40px rgba(24, 6, 72, 0.4);
+    box-shadow: 0px 20px 30px rgba(194, 188, 210, 0.4);
 }
 
 #start-button:hover,
@@ -118,14 +120,14 @@ body {
 
 .instructions {
     position: absolute; /* Position relative to the quiz area */
-    top: 64%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Center the instructions */
-    background-color: rgba(226, 220, 243, 0.9);
-    color: #211933;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    background-color: rgba(54, 44, 81, 0.9);
+    color: #d8e8d2;
     border-radius: 10px;
-    padding: 10px;
-    max-width: 80%; /* Limit the width to avoid overflow */
+    padding: 30px;
+    max-width: 90%; 
     display: none; /* Initially hidden */
    
 }
@@ -168,17 +170,43 @@ body {
     color: #d8e8d2;
 }
 
+#user-input {
+    padding: 10px; /* Padding */
+    border: 1px solid #ccc; /* Border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    width: 200px; /* Width */
+    box-sizing: border-box; /* Include padding and border in the width */
+    margin-bottom: 10px; /* Add some spacing */
+}
+
+/* Style for the button */
+#submit-btn {
+    padding: 10px 20px; /* Padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    background-color: #59044e; /* Background color */
+    color: #ffffff; /* Text color */
+    cursor: pointer; /* Cursor style */
+}
+
+  /* Hover effect for the input */
+  #user-input:hover,
+  #user-input:focus {
+    border-color: #59044e; /* Change border color on hover/focus */
+  }
+
 /* For JS use*/
 .hide {
     display: none;
 }
 
-
 @media screen and (max-width: 500px) {
     .quiz-area {
         display: block;
         width: 90%;
-        height: 700px;
+        height: 500px;
     }
 
     #next-button {
@@ -195,7 +223,7 @@ body {
     .quiz-area {
         display: block;
         width: 90%;
-        height: 730px;
+        height: 530px;
     }
 
     #next-button {
@@ -205,5 +233,35 @@ body {
     #info {
         width: 90px;
     }
+    .instructions {
+        position: absolute; /* Position relative to the quiz area */
+        top: 50%; /* Center vertically */
+        left: 50%; /* Center horizontally */
+        transform: translate(-50%, -50%); /* Center the instructions */
+        background-color: rgba(54, 44, 81, 0.9);
+        color: #d8e8d2;
+        border-radius: 10px;
+        padding: 30px;
+        max-width: 80%; /* Limit the width to avoid overflow */
+        display: none; /* Initially hidden */
+       
+    }
+    
+    .instructions h2 {
+        font-size: 18px;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+    
+    .instructions ul {
+        list-style-type: none;
+        margin-bottom: 10px;
+    }
+    
+    .instructions ul li {
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+    
 
 }
