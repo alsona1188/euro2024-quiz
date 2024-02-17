@@ -30,42 +30,53 @@
   </head>
 
   <body>
-    <div class="quiz-area">
-      <h1>
-        <i class="fa-regular fa-futbol fa-spin" style="color: #1a7426"></i> QUIZ
-        EURO 2024
-      </h1>
-      <p id="popup"></p>
-
-      <div class="main-question">
+    <div id="start-page">
+      <div class="quiz-area">
+        <h1><i class="fa-regular fa-futbol fa-spin" style="color: #1a7426"></i> QUIZ EURO 2024</h1>
+        <button id="start-button">Start Quiz</button>
+        <button id="instructions-button">Instructions</button>
+      </div>
+  
+      <div class="instructions" id="instruction-list" style="display: none;">
+        <h2>How to play the game: </h2>
+        <ul>
+          <li>- You can start the game by clicking start button</li>
+          <li>- In total are 10 questions. Each question has 4 alternatives.</li>
+          <li>- Click the "Next" button to move to the next question.</li>
+          <li>- After answering all questions, your score will be displayed.</li>
+          <li>- If you answer all the questions correctly, You will win a ticket!</li>
+        </ul>
+        <button id="close-instructions">close</button>
+      </div>
+    </div>
+  
+    <div id="quiz-content" style="display: none;">
+      <div class="quiz-area">
         <h2 id="question">Question goes here</h2>
-
         <div id="option-btn">
           <button class="btn">Answer 1</button>
           <button class="btn">Answer 2</button>
           <button class="btn">Answer 3</button>
           <button class="btn">Answer 4</button>
-          <audio id="popup-sound" class="hide">
-            <source src="sounds/popup-sound.mp3" type="audio/mp3" />
-          </audio>
-          <audio id="goal-sound" class="hide">
-            <source src="sounds/goal-sound.mp3" type="audio/mp3" />
-          </audio>
-          <audio id="nongoal-sound" class="hide">
-            <source src="sounds/non-goal-sound.mp3" type="audio/mp3" />
-          </audio>
         </div>
+        <button id="next-button">Next</button>
       </div>
-      <button id="next-button">Next</button>
-      <audio id="gameover-sound" class="hide">
-        <source src="sounds/game-over-sound.mp3" type="audio/mp3" />
-      </audio>
-      <button id="info" onclick="infoAlert()">Info</button>
     </div>
-    <script
-      src="https://kit.fontawesome.com/3b20d96fa9.js"
-      crossorigin="anonymous"
-    ></script>
+  
+    <audio id="popup-sound" class="hide">
+      <source src="sounds/popup-sound.mp3" type="audio/mp3">
+    </audio>
+    <audio id="goal-sound" class="hide">
+      <source src="sounds/goal-sound.mp3" type="audio/mp3">
+    </audio>
+    <audio id="nongoal-sound" class="hide">
+      <source src="sounds/non-goal-sound.mp3" type="audio/mp3">
+    </audio>
+    <audio id="gameover-sound" class="hide">
+      <source src="sounds/game-over-sound.mp3" type="audio/mp3">
+    </audio>
+  
+    <script src="https://kit.fontawesome.com/3b20d96fa9.js" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
   </body>
 </html>

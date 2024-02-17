@@ -15,7 +15,7 @@ body {
 }
 
 .quiz-area {
-
+    position: relative;
     background-color: rgba(54, 44, 81, 0.9);
     color: #d8e8d2;
     border-radius: 10px;
@@ -24,7 +24,7 @@ body {
     margin: 50px auto 15px;
     max-width: 600px;
     width: 90%;
-    height: 600px;
+    height: 580px;
 
 }
 
@@ -94,22 +94,67 @@ body {
 
 }
 
-#info {
-    background: #59044e;
-    color: #d8e8d2;
-    width: 150px;
-    height: 40px;
-    border-radius: 10px;
+#start-button,
+#instructions-button {
+    display: block;
+    width: 200px;
+    height: 70px;
     margin: 10px auto 0;
     cursor: pointer;
-    font-weight: 600;
-    float: left;
+    font-weight: 700;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    background: #59044e;
+    color: #d8e8d2;
     box-shadow: 0px 20px 40px rgba(24, 6, 72, 0.4);
 }
 
-#info:hover {
+#start-button:hover,
+#instructions-button:hover {
     color: #59044e;
     background-color: #d8e8d2;
+}
+
+.instructions {
+    position: absolute; /* Position relative to the quiz area */
+    top: 64%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the instructions */
+    background-color: rgba(226, 220, 243, 0.9);
+    color: #211933;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 80%; /* Limit the width to avoid overflow */
+    display: none; /* Initially hidden */
+   
+}
+
+.instructions h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.instructions ul {
+    list-style-type: none;
+    margin-bottom: 18px;
+}
+
+.instructions ul li {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.instructions #close-instructions {
+    background-color: #59044e;
+    color: #d8e8d2;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 15px;
+
 }
 
 .is-true {
@@ -128,13 +173,6 @@ body {
     display: none;
 }
 
-#popup {
-    background-color: #59044e;
-    border: 1.5px dashed #d8e8d2;
-    font-weight: 400;
-    padding: 5px;
-    margin: 5px 30px;
-}
 
 @media screen and (max-width: 500px) {
     .quiz-area {

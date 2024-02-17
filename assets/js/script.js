@@ -95,6 +95,12 @@ const questions = [
 ];
 
 // initiating these variables for all elements's id 
+const startPage = document.getElementById("start-page");
+const quizContent = document.getElementById("quiz-content");
+const startButton = document.getElementById("start-button");
+const instructionsButton = document.getElementById("instructions-button");
+const instructionsDiv = document.querySelector(".instructions");
+const closeInstructionsButton = document.getElementById("close-instructions");
 let questionElement = document.getElementById("question");
 let optionButtons = document.getElementById("option-btn");
 let nextButton = document.getElementById("next-button");
@@ -114,6 +120,20 @@ let score = 0;
  * Index of the question is 0 and score is also 0
  */
 
+startButton.addEventListener("click", function() {
+    startPage.style.display = "none";
+    quizContent.style.display = "block";
+    startGame(); // Start the quiz
+  });
+
+  instructionsButton.addEventListener("click", function() {
+    instructionsDiv.style.display = "block";
+  });
+
+  closeInstructionsButton.addEventListener("click", function() {
+    instructionsDiv.style.display = "none";
+  });
+  
 function startGame() {
     currentQuestionIndex = 0;
     score = 0;
