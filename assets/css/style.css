@@ -25,7 +25,7 @@ body {
     margin: 50px auto 15px;
     max-width: 600px;
     width: 90%;
-    height: 500px;
+    height: 580px;
 
 }
 
@@ -113,6 +113,7 @@ p{
 }
 
 #start-button:hover,
+#submit-btn:hover,
 #instructions-button:hover {
     color: #59044e;
     background-color: #d8e8d2;
@@ -196,6 +197,13 @@ p{
   #user-input:focus {
     border-color: #59044e; /* Change border color on hover/focus */
   }
+
+  #name-label {
+    display: block; /* Display as block */
+    margin-bottom: 5px; /* Add some spacing */
+    font-size: 16px;
+    color: aliceblue;
+}
 
 /* For JS use*/
 .hide {

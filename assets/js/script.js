@@ -97,6 +97,7 @@ const questions = [
 // initiating these variables for all elements's id 
 const userInput = document.getElementById('user-input');
 const welcomeSection = document.getElementById('welcome-section');
+const nameLabel = document.getElementById('name-label');
 const startPage = document.getElementById("start-page");
 const quizContent = document.getElementById("quiz-content");
 const startButton = document.getElementById("start-button");
@@ -124,6 +125,7 @@ let score = 0;
         // Hide the input and button
         userInput.style.display = 'none';
         this.style.display = 'none';
+        nameLabel.style.display = 'none'
 
         // Display the welcome message
         const welcomeMessage = document.createElement('h3');
