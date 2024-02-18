@@ -110,19 +110,23 @@ let nextButton = document.getElementById("next-button");
 let correctSound = document.getElementById('goal-sound');
 let incorrectSound = document.getElementById('nongoal-sound');
 let gameOverSound = document.getElementById('gameover-sound');
-let restartbtn = document.getElementById("restart-button")
+let submittbtn = document.getElementById('submit-btn');
+
 
 // Setting up the variables to store the scores and the question index
 let currentQuestionIndex = 0;
 let score = 0;
+let userName;
+
 
  // Add event listener to the submit button
- document.getElementById('submit-btn').addEventListener('click', function() {
+ submittbtn.addEventListener('click', function() {
     // Get the value entered by the user
-    const userName = userInput.value.trim();
+    userName = userInput.value.trim();
     // Check if the user entered a name
     if (userName !== '') {
         // Hide the input and button
+        startButton.style.display = 'block'
         userInput.style.display = 'none';
         this.style.display = 'none';
         nameLabel.style.display = 'none'
@@ -132,13 +136,10 @@ let score = 0;
         welcomeSection.appendChild(welcomeMessage);
     } else {
         alert('Please enter your name.'); // Show an alert if the input is empty
+        startButton.style.display = 'none'
+
     }
 });
-
-/**
- * This function will start the game 
- * Index of the question is 0 and score is also 0
- */
 
 startButton.addEventListener("click", function() {
     startPage.style.display = "none";
@@ -153,13 +154,7 @@ startButton.addEventListener("click", function() {
   closeInstructionsButton.addEventListener("click", function() {
     instructionsDiv.style.display = "none";
   });
-  restartbtn.addEventListener("click", function() {
-    // Show the start page
-    startPage.style.display = "block";
-    // Hide the quiz content
-    quizContent.style.display = "none";
-  });
-  
+   
 function startGame() {
     currentQuestionIndex = 0;
     score = 0;
@@ -246,17 +241,31 @@ function selectOption(e) {
  * it is added also a game over sound
  */
 
-function showScore() {
+function showScore(userName) {
     resetQuestionAndAnswer();
-
     gameOverSound.play();
     nextButton.innerHTML = "Restart";
-    if (score === questions.length) {
-        questionElement.innerHTML = `Congratulations!! <i class="fa-solid fa-medal fa-beat" style="color: #f0ea47;"></i> You won a ticket for Euro 2024!!`;
-    } else {
-        questionElement.innerHTML = `End of the Quiz! You have scored <i class="fa-solid fa-face-smile-wink" style="color: #d3a136;"></i> ${score} out of ${questions.length}!`;
+
+    // Create a table element
+    const table = document.createElement('table');
+    table.classList.add('score-table');
+
+    // Create table rows and cells for each score information
+    const headings = ['Name', 'Total Questions', 'Correct Answers', 'Wrong Answers', 'Final Score'];
+    const userData = [userName, questions.length, score, questions.length - score, score];
+
+    for (let i = 0; i < headings.length; i++) {
+        const row = table.insertRow();
+        const headingCell = row.insertCell();
+        const dataCell = row.insertCell();
+
+        headingCell.textContent = headings[i];
+        dataCell.textContent = userData[i];
     }
 
+    // Append the table to the questionElement
+    questionElement.innerHTML = '';
+    questionElement.appendChild(table);
 }
 
 /**
@@ -271,7 +280,7 @@ function handleNextButton() {
         showQuestion();
 
     } else {
-        showScore()
+        showScore(userName)
     }
 }
 
@@ -283,15 +292,21 @@ nextButton.addEventListener("click", () => {
         handleNextButton();
 
     } else {
-         // Show the start page
-         startPage.style.display = "block";
-         // Hide the quiz content
-         quizContent.style.display = "none";
-         // Reset question index and score
-         currentQuestionIndex = 0;
-         score = 0;
-         // Hide the next button
-         nextButton.style.display = "none";
+        // Show the start page
+        startPage.style.display = "block";
+        // Hide the quiz content
+        quizContent.style.display = "none";
+        // Reset question index and score
+        currentQuestionIndex = 0;
+        score = 0;
+        // Hide the next button
+        nextButton.style.display = "none";
+        // Remove the welcome message
+        welcomeSection.innerHTML = '';
+        // Show the input field, submit button, and name label again
+        userInput.style.display = 'block';
+        nameLabel.style.display = 'block';
+        submittbtn.style.display = 'block';
        
     }
 
