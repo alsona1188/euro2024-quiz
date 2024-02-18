@@ -119,14 +119,12 @@ let score = 0;
  document.getElementById('submit-btn').addEventListener('click', function() {
     // Get the value entered by the user
     const userName = userInput.value.trim();
-
     // Check if the user entered a name
     if (userName !== '') {
         // Hide the input and button
         userInput.style.display = 'none';
         this.style.display = 'none';
         nameLabel.style.display = 'none'
-
         // Display the welcome message
         const welcomeMessage = document.createElement('h3');
         welcomeMessage.textContent = `Welcome, ${userName}!`;
@@ -160,8 +158,7 @@ function startGame() {
     score = 0;
     nextButton.innerHTML = "Next";
     showQuestion();
-    infoButton.classList.remove("hide");
-    message.classList.remove("hide");
+
 
 }
 
@@ -205,24 +202,6 @@ function resetQuestionAndAnswer() {
 }
 
 /**
- * This is a prompt function which
- * it is asking the user to insert the name
- * and diplays a message as well
- */
-function infoAlert() {
-
-    popupSound.play();
-    let text;
-    let person = prompt("Please enter your name:", "Champion");
-    if (person == null || person == "") {
-        text = "no name was entered";
-    } else {
-        text = "Welcome " + person + "! This is a simple quiz for all the fans of Europian Championship. We wish you luck!!";
-    }
-    message.innerHTML = text;
-
-}
-/**
  * When we will click on the buttons it will add the selected option on the variable 
  * and than it will check for the dataset values if it is true or not
  */
@@ -264,8 +243,9 @@ function selectOption(e) {
 
 function showScore() {
     resetQuestionAndAnswer();
+    
     gameOverSound.play();
-    infoButton.classList.add('hide');
+
     nextButton.innerHTML = "Restart";
     if (score === questions.length) {
         questionElement.innerHTML = `Congratulations!! <i class="fa-solid fa-medal fa-beat" style="color: #f0ea47;"></i> You won a ticket for Euro 2024!!`;
@@ -285,11 +265,9 @@ function handleNextButton() {
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
         showQuestion();
-        message.classList.add("hide");
 
     } else {
         showScore();
-
     }
 }
 
@@ -299,14 +277,10 @@ function handleNextButton() {
 nextButton.addEventListener("click", () => {
     if (currentQuestionIndex < questions.length) {
         handleNextButton();
-        infoButton.classList.add("hide");
 
     } else {
-        // if there is no question, when we click on the button will restart the quiz
-        // it will be displayed a message as well
         startGame();
-        message.classList.remove("hide");
-        message.innerHTML = "Let's try again!";
+       
     }
 
 });
