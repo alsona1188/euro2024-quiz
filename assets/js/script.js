@@ -8,13 +8,13 @@ const startButton = document.getElementById("start-button");
 const instructionsButton = document.getElementById("instructions-button");
 const instructionsDiv = document.querySelector(".instructions");
 const closeInstructionsButton = document.getElementById("close-instructions");
-let questionElement = document.getElementById("question");
-let optionButtons = document.getElementById("option-btn");
-let nextButton = document.getElementById("next-button");
-let correctSound = document.getElementById('goal-sound');
-let incorrectSound = document.getElementById('nongoal-sound');
-let gameOverSound = document.getElementById('gameover-sound');
-let submittbtn = document.getElementById('submit-btn');
+const questionElement = document.getElementById("question");
+const optionButtons = document.getElementById("option-btn");
+const nextButton = document.getElementById("next-button");
+const correctSound = document.getElementById('goal-sound');
+const incorrectSound = document.getElementById('nongoal-sound');
+const gameOverSound = document.getElementById('gameover-sound');
+const submittbtn = document.getElementById('submit-btn');
 const resultSection = document.getElementById("result-section");
 
 
@@ -22,21 +22,6 @@ const resultSection = document.getElementById("result-section");
 let currentQuestionIndex = 0;
 let score = 0;
 let userName;
-
-// Shuffle function to randomize array elements
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-}
-
-// Call this function to shuffle the questions array before starting the game
-function shuffleQuestions() {
-    questions = shuffleArray(questions);
-}
-
 
  // Add event listener to the submit button
  submittbtn.addEventListener('click', function() {
@@ -78,7 +63,6 @@ startButton.addEventListener("click", function() {
     currentQuestionIndex = 0;
     score = 0;
     nextButton.innerHTML = "Next";
-    shuffleQuestions(); // Shuffle questions before starting the game
     showQuestion();
 }
 
@@ -174,25 +158,27 @@ function showScore(userName) {
   
     // Construct the result content
     resultElement.innerHTML = `
-      <h2>Quiz Result</h2>
-      <table id="result-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Correct Answers</th>
-            <th>Wrong Answers</th>
-            <th>Total Score</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>${userName}</td>
-            <td>${score}</td>
-            <td>${questions.length - score}</td>
-            <td>${score}</td>
-          </tr>
-        </tbody>
-      </table>
+    <h2>Quiz Result</h2>
+    <table id="result-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>${userName}</th>
+        </tr>
+        <tr>
+          <th>Correct Answers</th>
+          <th>${score}</th>
+        </tr>
+        <tr>
+          <th>Wrong Answers</th>
+          <th>${questions.length - score}</th>
+        </tr>
+        <tr>
+          <th>Total Score</th>
+          <th>${score}</th>
+        </tr>
+      </thead>
+    </table>
       <button id="restart-button">Restart</button>
       <button id="home-button">Home</button>
     `;
