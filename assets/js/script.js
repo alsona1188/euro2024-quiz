@@ -155,6 +155,9 @@ function showScore(userName) {
     // Create a new element for the quiz result
     const resultElement = document.createElement('div');
     resultElement.classList.add('quiz-result');
+
+    // Check if all questions were answered correctly
+    let allCorrect = score === questions.length;
   
     // Construct the result content
     resultElement.innerHTML = `
@@ -198,7 +201,8 @@ function showScore(userName) {
         // Go back to the home page
         window.location.reload();
     });
-       
+
+  
   }
 
 /**
