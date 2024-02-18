@@ -202,6 +202,64 @@ p{
     display: none;
 }
 
+/* Result section styles */
+
+
+#result-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#result-table th,
+#result-table td {
+    padding: 10px;
+    border: 1px solid #108e45;
+}
+
+#result-table th {
+    background-color: #0a491f;
+    font-weight: bold;
+    text-align: center;
+}
+
+#result-table td {
+    text-align: center;
+}
+
+#restart-button,
+#home-button {
+    display: block;
+    width: 150px;
+    height: 50px;
+    margin: 20px auto; /* Center horizontally */
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    background: #59044e;
+    color: #d8e8d2;
+    box-shadow: 0px 20px 30px rgba(194, 188, 210, 0.4);
+}
+
+#restart-button:hover,
+#home-button:hover {
+    background-color: #4CAF50;
+}
+
+#restart-button {
+    margin-right: 10px;
+}
+
+#home-button {
+    background-color: #59044e;
+}
+
+#home-button:hover {
+    background-color: #4CAF50;
+}
+
 @media screen and (max-width: 500px) {
     .quiz-area {
         display: block;

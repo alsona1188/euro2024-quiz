@@ -28,7 +28,7 @@
       href="assets/images/Capture.ico"
     />
   </head>
-
+  
   <body>
     <!-- The first Page -->
     <div id="start-page">
@@ -70,6 +70,26 @@
         <button id="next-button">Next</button>
       </div>
     </div>
+    
+<!-- Result section -->
+<div id="result-section" style="display: none;">
+  <h2>Quiz Result</h2>
+  <table id="result-table">
+      <thead>
+          <tr>
+              <th>Name</th>
+              <th>Correct Answers</th>
+              <th>Wrong Answers</th>
+              <th>Total Score</th>
+          </tr>
+      </thead>
+      <tbody>
+          <!-- Table rows will be dynamically populated by JavaScript -->
+      </tbody>
+  </table>
+  <button id="restart-button">Restart</button>
+  <button id="home-button">Home</button>
+</div>
 
     <audio id="goal-sound" class="hide">
       <source src="sounds/goal-sound.mp3" type="audio/mp3">

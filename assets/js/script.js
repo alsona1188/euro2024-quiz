@@ -15,12 +15,27 @@ let correctSound = document.getElementById('goal-sound');
 let incorrectSound = document.getElementById('nongoal-sound');
 let gameOverSound = document.getElementById('gameover-sound');
 let submittbtn = document.getElementById('submit-btn');
+const resultSection = document.getElementById("result-section");
 
 
 // Setting up the variables to store the scores and the question index
 let currentQuestionIndex = 0;
 let score = 0;
 let userName;
+
+// Shuffle function to randomize array elements
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+// Call this function to shuffle the questions array before starting the game
+function shuffleQuestions() {
+    questions = shuffleArray(questions);
+}
 
 
  // Add event listener to the submit button
@@ -58,11 +73,12 @@ startButton.addEventListener("click", function() {
   closeInstructionsButton.addEventListener("click", function() {
     instructionsDiv.style.display = "none";
   });
-   
-function startGame() {
+
+  function startGame() {
     currentQuestionIndex = 0;
     score = 0;
     nextButton.innerHTML = "Next";
+    shuffleQuestions(); // Shuffle questions before starting the game
     showQuestion();
 }
 
@@ -146,31 +162,58 @@ function selectOption(e) {
  */
 
 function showScore(userName) {
-    resetQuestionAndAnswer();
-    gameOverSound.play();
-    nextButton.innerHTML = "Restart";
-
-    // Create a table element
-    const table = document.createElement('table');
-    table.classList.add('score-table');
-
-    // Create table rows and cells for each score information
-    const headings = ['Name', 'Total Questions', 'Correct Answers', 'Wrong Answers', 'Final Score'];
-    const userData = [userName, questions.length, score, questions.length - score, score];
-
-    for (let i = 0; i < headings.length; i++) {
-        const row = table.insertRow();
-        const headingCell = row.insertCell();
-        const dataCell = row.insertCell();
-
-        headingCell.textContent = headings[i];
-        dataCell.textContent = userData[i];
-    }
-
-    // Append the table to the questionElement
-    questionElement.innerHTML = '';
-    questionElement.appendChild(table);
-}
+    // Select the quiz area
+    const quizArea = document.querySelector('.quiz-area');
+  
+    // Clear the quiz area content
+    quizArea.innerHTML = '';
+  
+    // Create a new element for the quiz result
+    const resultElement = document.createElement('div');
+    resultElement.classList.add('quiz-result');
+  
+    // Construct the result content
+    resultElement.innerHTML = `
+      <h2>Quiz Result</h2>
+      <table id="result-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Correct Answers</th>
+            <th>Wrong Answers</th>
+            <th>Total Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>${userName}</td>
+            <td>${score}</td>
+            <td>${questions.length - score}</td>
+            <td>${score}</td>
+          </tr>
+        </tbody>
+      </table>
+      <button id="restart-button">Restart</button>
+      <button id="home-button">Home</button>
+    `;
+  
+    // Append the result element to the quiz area
+    quizArea.appendChild(resultElement);
+    const restartButton = document.getElementById("restart-button");
+    
+    restartButton.addEventListener("click", function() {
+        // Reset the quiz
+        startPage.style.display = "none";
+        quizContent.style.display = "block";
+        startGame(); // Restart the quiz
+    });
+    const homeButton = document.getElementById("home-button");
+    homeButton.addEventListener("click", function() {
+        // Go back to the home page
+        window.location.reload();
+    });
+       
+  }
 
 /**
  * This function will handle the next button.
@@ -204,13 +247,13 @@ nextButton.addEventListener("click", () => {
         currentQuestionIndex = 0;
         score = 0;
         // Hide the next button
-       
+         // Show the input field, submit button, and name label again
+         userInput.style.display = 'block';
+         nameLabel.style.display = 'block';
+         submittbtn.style.display = 'block';
         // Clear the welcome message
         welcomeSection.innerHTML = '';
-        // Show the input field, submit button, and name label again
-        userInput.style.display = 'block';
-        nameLabel.style.display = 'block';
-        submittbtn.style.display = 'block';
+       
        
     }
 
