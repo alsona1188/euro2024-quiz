@@ -110,6 +110,7 @@ let nextButton = document.getElementById("next-button");
 let correctSound = document.getElementById('goal-sound');
 let incorrectSound = document.getElementById('nongoal-sound');
 let gameOverSound = document.getElementById('gameover-sound');
+let restartbtn = document.getElementById("restart-button")
 
 // Setting up the variables to store the scores and the question index
 let currentQuestionIndex = 0;
@@ -152,14 +153,18 @@ startButton.addEventListener("click", function() {
   closeInstructionsButton.addEventListener("click", function() {
     instructionsDiv.style.display = "none";
   });
+  restartbtn.addEventListener("click", function() {
+    // Show the start page
+    startPage.style.display = "block";
+    // Hide the quiz content
+    quizContent.style.display = "none";
+  });
   
 function startGame() {
     currentQuestionIndex = 0;
     score = 0;
     nextButton.innerHTML = "Next";
     showQuestion();
-
-
 }
 
 /**
@@ -243,9 +248,8 @@ function selectOption(e) {
 
 function showScore() {
     resetQuestionAndAnswer();
-    
-    gameOverSound.play();
 
+    gameOverSound.play();
     nextButton.innerHTML = "Restart";
     if (score === questions.length) {
         questionElement.innerHTML = `Congratulations!! <i class="fa-solid fa-medal fa-beat" style="color: #f0ea47;"></i> You won a ticket for Euro 2024!!`;
@@ -267,7 +271,7 @@ function handleNextButton() {
         showQuestion();
 
     } else {
-        showScore();
+        showScore()
     }
 }
 
@@ -279,10 +283,19 @@ nextButton.addEventListener("click", () => {
         handleNextButton();
 
     } else {
-        startGame();
+         // Show the start page
+         startPage.style.display = "block";
+         // Hide the quiz content
+         quizContent.style.display = "none";
+         // Reset question index and score
+         currentQuestionIndex = 0;
+         score = 0;
+         // Hide the next button
+         nextButton.style.display = "none";
        
     }
 
 });
+
 
 startGame();

@@ -86,7 +86,8 @@ p{
 
 #start-button,
 #instructions-button,
-#next-button {
+#next-button,
+#restart-button {
     display: block;
     width: 200px;
     height: 50px;
@@ -100,6 +101,7 @@ p{
     color: #d8e8d2;
     box-shadow: 0px 20px 30px rgba(194, 188, 210, 0.4);
 }
+
 
 #start-button:hover,
 #submit-btn:hover,
