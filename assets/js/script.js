@@ -22,6 +22,7 @@ const resultSection = document.getElementById("result-section");
 let currentQuestionIndex = 0;
 let score = 0;
 let userName;
+let questionNo = 0;
 
  // Add event listener to the submit button
  submittbtn.addEventListener('click', function() {
@@ -61,6 +62,7 @@ startButton.addEventListener("click", function() {
 
   function startGame() {
     currentQuestionIndex = 0;
+    questionNo = 0;
     score = 0;
     nextButton.innerHTML = "Next";
     showQuestion();
@@ -75,13 +77,12 @@ startButton.addEventListener("click", function() {
 function showQuestion() {
 
     resetQuestionAndAnswer();
-
+    let currentQuestionIndex = Math.floor(Math.random() * questions.length);
     let currentQuestion = questions[currentQuestionIndex];
-    let questionNo = currentQuestionIndex + 1;
-    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+    questionNo++
+    questionElement.innerHTML = `${questionNo} out of ${questions.length}: ${currentQuestion.question}`;
 
     //the code that updates the answers
-
     currentQuestion.answers.forEach(answer => {
 
         let button = document.createElement("button");// creating a button element
@@ -147,18 +148,17 @@ function selectOption(e) {
 
 function showScore(userName) {
     // Select the quiz area
-    const quizArea = document.querySelector('.quiz-area');
+    let quizArea = document.querySelector('.quiz-area');
   
     // Clear the quiz area content
     quizArea.innerHTML = '';
+    // Calculate the total score by multiplying the current score by 1
+    let totalScore = score * 10;
   
     // Create a new element for the quiz result
-    const resultElement = document.createElement('div');
+    let resultElement = document.createElement('div');
     resultElement.classList.add('quiz-result');
 
-    // Check if all questions were answered correctly
-    let allCorrect = score === questions.length;
-  
     // Construct the result content
     resultElement.innerHTML = `
     <h2>Quiz Result</h2>
@@ -178,7 +178,7 @@ function showScore(userName) {
         </tr>
         <tr>
           <th>Total Score</th>
-          <th>${score}</th>
+          <th>${totalScore}</th>
         </tr>
       </thead>
     </table>
@@ -188,7 +188,7 @@ function showScore(userName) {
   
     // Append the result element to the quiz area
     quizArea.appendChild(resultElement);
-    const restartButton = document.getElementById("restart-button");
+    let restartButton = document.getElementById("restart-button");
     
     restartButton.addEventListener("click", function() {
         // Reset the quiz
@@ -196,7 +196,7 @@ function showScore(userName) {
         quizContent.style.display = "block";
         startGame(); // Restart the quiz
     });
-    const homeButton = document.getElementById("home-button");
+    let homeButton = document.getElementById("home-button");
     homeButton.addEventListener("click", function() {
         // Go back to the home page
         window.location.reload();
