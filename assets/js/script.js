@@ -94,8 +94,10 @@ function startTimer() {
 
 // Function to handle timeout when the time is over
 function handleTimeout() {
-    // Inform the user that the time is over
-    alert('Time is over! Restarting the game.');
+    if (quizContent.style.display === "block") {
+        // Inform the user that the time is over only if the quiz content is displayed
+        alert('Time is over! Restarting the game.');
+    }
     // Restart the game
     startGame();
 }
