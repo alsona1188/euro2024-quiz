@@ -74,24 +74,31 @@ startButton.addEventListener("click", function() {
  * and will update the text
  */
 
-function showQuestion() {
+let askedQuestions = []; // Array to keep track of asked questions
 
+function showQuestion() {
     resetQuestionAndAnswer();
-    let currentQuestionIndex = Math.floor(Math.random() * questions.length);
-    let currentQuestion = questions[currentQuestionIndex];
-    questionNo++
+
+    // Check if all questions have been asked, reset if needed
+    if (askedQuestions.length === questions.length) {
+        askedQuestions = [];
+    }
+
+    let remainingQuestions = questions.filter(question => !askedQuestions.includes(question));
+    let currentQuestionIndex = Math.floor(Math.random() * remainingQuestions.length);
+    let currentQuestion = remainingQuestions[currentQuestionIndex];
+    askedQuestions.push(currentQuestion);
+
+    questionNo++;
     questionElement.innerHTML = `${questionNo} out of ${questions.length}: ${currentQuestion.question}`;
 
-    //the code that updates the answers
     currentQuestion.answers.forEach(answer => {
-
-        let button = document.createElement("button");// creating a button element
+        let button = document.createElement("button");
         button.innerHTML = answer.option;
-
-        button.classList.add("btn");   // adding a class to that button
-        optionButtons.appendChild(button);   // display the button inside the div
+        button.classList.add("btn");
+        optionButtons.appendChild(button);
         if (answer.value) {
-            button.dataset.value = answer.value; // true or false will be added here 
+            button.dataset.value = answer.value;
         }
         button.addEventListener("click", selectOption);
     });
@@ -142,8 +149,8 @@ function selectOption(e) {
 }
 
 /**
- * This function shows the final page with the scores
- * it is added also a game over sound
+ * This function handles displaying the quiz result 
+ * along with options to restart or return to the home page.
  */
 
 function showScore(userName) {
@@ -159,9 +166,19 @@ function showScore(userName) {
     let resultElement = document.createElement('div');
     resultElement.classList.add('quiz-result');
 
+    let congratsMessage = "";
+    if (totalScore === 100) {
+        congratsMessage = "🎉 Congratulations! You won a ticket! 🎉";
+    } else if (totalScore >= 80) {
+        congratsMessage = "👍 Well done! You scored 80 points or more!";
+    } else if (totalScore < 50) {
+        congratsMessage = "😕 You scored less than 50 points. Better luck next time!";
+    }
+
     // Construct the result content
     resultElement.innerHTML = `
     <h2>Quiz Result</h2>
+    <div id="congrats-message">${congratsMessage}</div>
     <table id="result-table">
       <thead>
         <tr>
@@ -185,7 +202,8 @@ function showScore(userName) {
       <button id="restart-button">Restart</button>
       <button id="home-button">Home</button>
     `;
-  
+
+    
     // Append the result element to the quiz area
     quizArea.appendChild(resultElement);
     let restartButton = document.getElementById("restart-button");
@@ -201,8 +219,6 @@ function showScore(userName) {
         // Go back to the home page
         window.location.reload();
     });
-
-  
   }
 
 /**

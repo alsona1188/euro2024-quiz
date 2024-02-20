@@ -244,6 +244,15 @@ p{
     text-align: center;
 }
 
+#congrats-message {
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color:#8de490
+}
 
 @media screen and (max-width: 500px) {
     .quiz-area {
