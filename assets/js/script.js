@@ -36,7 +36,7 @@ let questionNo = 0;
         this.style.display = 'none';
         nameLabel.style.display = 'none'
         // Display the welcome message
-        const welcomeMessage = document.createElement('h3');
+        let welcomeMessage = document.createElement('h3');
         welcomeMessage.textContent = `Welcome, ${userName}!`;
         welcomeSection.appendChild(welcomeMessage);
     } else {
