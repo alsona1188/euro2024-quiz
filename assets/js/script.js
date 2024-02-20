@@ -23,6 +23,8 @@ let currentQuestionIndex = 0;
 let score = 0;
 let userName;
 let questionNo = 0;
+let timer;
+let timerValue = 15; // Initial timer value
 
  // Add event listener to the submit button
  submittbtn.addEventListener('click', function() {
@@ -50,6 +52,7 @@ startButton.addEventListener("click", function() {
     startPage.style.display = "none";
     quizContent.style.display = "block";
     startGame(); // Start the quiz
+    startTimer();
   });
 
   instructionsButton.addEventListener("click", function() {
@@ -65,7 +68,44 @@ startButton.addEventListener("click", function() {
     questionNo = 0;
     score = 0;
     nextButton.innerHTML = "Next";
+    resetTimer(); // Reset timer when starting the game
     showQuestion();
+    startTimer(); // Start the timer after displaying the question
+}
+
+// Function to update the timer display
+function updateTimerDisplay() {
+    document.getElementById("timer-value").textContent = timerValue;
+}
+
+// Function to start the timer for each question
+function startTimer() {
+    // Clear any existing timer
+    clearTimeout(timer);
+    // Start a new timer for 15 seconds
+    timer = setInterval(function() {
+        timerValue--;
+        updateTimerDisplay();
+        if (timerValue === 0) {
+            handleTimeout();
+        }
+    }, 1000); // Update timer every second
+}
+
+// Function to handle timeout when the time is over
+function handleTimeout() {
+    // Inform the user that the time is over
+    alert('Time is over! Restarting the game.');
+    // Restart the game
+    startGame();
+}
+
+// Function to reset the timer
+function resetTimer() {
+    // Clear the timer
+    clearInterval(timer);
+    timerValue = 15;
+    updateTimerDisplay();
 }
 
 /**
@@ -78,6 +118,9 @@ let askedQuestions = []; // Array to keep track of asked questions
 
 function showQuestion() {
     resetQuestionAndAnswer();
+    resetTimer(); // Reset timer for each question
+    startTimer(); // Start timer for the current question
+    updateTimerDisplay(); // Update timer display
 
     // Check if all questions have been asked, reset if needed
     if (askedQuestions.length === questions.length) {
@@ -118,6 +161,7 @@ function resetQuestionAndAnswer() {
  * and than it will check for the dataset values if it is true or not
  */
 function selectOption(e) {
+    resetTimer(); // Reset timer when an option is selected
     const selectedOption = e.target;
     const isTrue = selectedOption.dataset.value === "true";
     if (isTrue) {
@@ -227,6 +271,7 @@ function showScore(userName) {
  */
 
 function handleNextButton() {
+    resetTimer(); // Reset timer when moving to the next question
     // will increase the question index by 1
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
