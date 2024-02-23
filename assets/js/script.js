@@ -63,6 +63,9 @@ startButton.addEventListener("click", function() {
     instructionsDiv.style.display = "none";
   });
 
+  /**
+   * initializing the game by resetting some variables.
+   */
   function startGame() {
     currentQuestionIndex = 0;
     questionNo = 0;
@@ -92,7 +95,10 @@ function startTimer() {
     }, 1000); // Update timer every second
 }
 
-// Function to handle timeout when the time is over
+/**
+ * This function is handling what occurs when 
+ * the time runs out during the quiz game.
+ */
 function handleTimeout() {
     if (quizContent.style.display === "block") {
         // Inform the user that the time is over only if the quiz content is displayed
@@ -102,7 +108,10 @@ function handleTimeout() {
     startGame();
 }
 
-// Function to reset the timer
+/**
+ * This function is responsible for resetting 
+ * the timer used in the quiz game
+ */
 function resetTimer() {
     // Clear the timer
     clearInterval(timer);
@@ -113,85 +122,96 @@ function resetTimer() {
 /**
  * This function will show all the questions and options one by one 
  * will update also the question number
+ * the questions will be filtered and appear randomly
  * and will update the text
  */
 
 let askedQuestions = []; // Array to keep track of asked questions
 
 function showQuestion() {
+    // Clear previous question and answer displays
     resetQuestionAndAnswer();
-    resetTimer(); // Reset timer for each question
-    startTimer(); // Start timer for the current question
-    updateTimerDisplay(); // Update timer display
 
-    // Check if all questions have been asked, reset if needed
+    // Reset and start the timer for the current question
+    resetTimer();
+    startTimer();
+
+    // Update the timer display
+    updateTimerDisplay();
+
+    // Check if all questions have been asked and reset if needed
     if (askedQuestions.length === questions.length) {
         askedQuestions = [];
     }
 
+    // Filter out the questions that haven't been asked yet
     let remainingQuestions = questions.filter(question => !askedQuestions.includes(question));
+
+    // Select a random question from the remaining pool
     let currentQuestionIndex = Math.floor(Math.random() * remainingQuestions.length);
     let currentQuestion = remainingQuestions[currentQuestionIndex];
-    askedQuestions.push(currentQuestion);
+    askedQuestions.push(currentQuestion); // Mark the question as asked
 
+    // Update and display the question number and text
     questionNo++;
     questionElement.innerHTML = `${questionNo} out of ${questions.length}: ${currentQuestion.question}`;
 
+    // Display answer options for the current question
     currentQuestion.answers.forEach(answer => {
+        // Create a button for each answer option
         let button = document.createElement("button");
         button.innerHTML = answer.option;
         button.classList.add("btn");
         optionButtons.appendChild(button);
+
+        // Assign a dataset value if the answer has a value property
         if (answer.value) {
             button.dataset.value = answer.value;
         }
+
+        // Attach an event listener to handle when the option is selected
         button.addEventListener("click", selectOption);
     });
 }
 /**
- * this function will reset all the questions and answers
+ * This function will reset all the questions and answers
  */
 function resetQuestionAndAnswer() {
-
-    while (optionButtons.firstChild) {
-        optionButtons.removeChild(optionButtons.firstChild);
-    }
+    // Remove all child nodes of optionButtons
+    optionButtons.innerHTML = '';
 }
 
 /**
  * When we will click on the buttons it will add the selected option on the variable 
  * and than it will check for the dataset values if it is true or not
  */
-function selectOption(e) {
+function selectOption(event) {
     resetTimer(); // Reset timer when an option is selected
-    const selectedOption = e.target;
+    const selectedOption = event.target;
     const isTrue = selectedOption.dataset.value === "true";
-    if (isTrue) {
-        // will add the class name "is-true"
-        selectedOption.classList.add("is-true");
-        // Will play a sound for the true answer
-        correctSound.play();
-        score++; // will increase the score if the option is correct
-    } else {
-        // will add the class name "is-false"
-        // will play a sound for the false answer
-        selectedOption.classList.add("is-false");
-        incorrectSound.play();
 
+    // Apply styling and play sound based on correctness
+    if (isTrue) {
+        selectedOption.classList.add("is-true");
+        selectedOption.style.backgroundColor = "#084F31";
+        selectedOption.style.color = "#d8e8d2";
+        correctSound.play();
+        score++; // Increase the score if the option is correct
+    } else {
+        selectedOption.classList.add("is-false");
+        selectedOption.style.backgroundColor = "#9E0E45";
+        selectedOption.style.color = "#d8e8d2";
+        incorrectSound.play();
     }
 
-    /**
-     * when we click an option, if it is false will search for the true one 
-     * and will disable all the other button  */
-
+    // Disable all buttons after an option is selected
     Array.from(optionButtons.children).forEach(button => {
+        // If the button is the correct answer, mark it as true
         if (button.dataset.value === "true") {
             button.classList.add("is-true");
         }
         button.disabled = true;
     });
-
-
 }
 
 /**
@@ -201,17 +221,15 @@ function selectOption(e) {
 
 function showScore(userName) {
     // Select the quiz area
-    let quizArea = document.querySelector('.quiz-area');
+    const quizArea = document.querySelector('.quiz-area');
   
     // Clear the quiz area content
     quizArea.innerHTML = '';
-    // Calculate the total score by multiplying the current score by 1
-    let totalScore = score * 10;
-  
-    // Create a new element for the quiz result
-    let resultElement = document.createElement('div');
-    resultElement.classList.add('quiz-result');
-
+    
+    // Calculate the total score
+    const totalScore = score * 10;
+    
+    // Determine the congratulatory message based on the total score
     let congratsMessage = "";
     if (totalScore === 100) {
         congratsMessage = "🎉 Congratulations! You won a ticket! 🎉";
@@ -221,55 +239,69 @@ function showScore(userName) {
         congratsMessage = "😕 You scored less than 50 points. Better luck next time!";
     }
 
+    // Create the result element
+    const resultElement = document.createElement('div');
+    resultElement.classList.add('quiz-result');
+
     // Construct the result content
     resultElement.innerHTML = `
-    <h2>Quiz Result</h2>
-    <div id="congrats-message">${congratsMessage}</div>
-    <table id="result-table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>${userName}</th>
-        </tr>
-        <tr>
-          <th>Correct Answers</th>
-          <th>${score}</th>
-        </tr>
-        <tr>
-          <th>Wrong Answers</th>
-          <th>${questions.length - score}</th>
-        </tr>
-        <tr>
-          <th>Total Score</th>
-          <th>${totalScore}</th>
-        </tr>
-      </thead>
-    </table>
-      <button id="restart-button">Restart</button>
-      <button id="home-button">Home</button>
+        <h2>Quiz Result</h2>
+        <div id="congrats-message">${congratsMessage}</div>
+        <table id="result-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>${userName}</th>
+                </tr>
+                <tr>
+                    <th>Correct Answers</th>
+                    <th>${score}</th>
+                </tr>
+                <tr>
+                    <th>Wrong Answers</th>
+                    <th>${questions.length - score}</th>
+                </tr>
+                <tr>
+                    <th>Total Score</th>
+                    <th>${totalScore}</th>
+                </tr>
+            </thead>
+        </table>
+        <button id="restart-button">Restart</button>
+        <button id="home-button">Home</button>
     `;
 
-    
     // Append the result element to the quiz area
     quizArea.appendChild(resultElement);
-    let restartButton = document.getElementById("restart-button");
-    
-    restartButton.addEventListener("click", function() {
-        // Reset the quiz
-        startPage.style.display = "none";
-        quizContent.style.display = "block";
-        startGame(); // Restart the quiz
-    });
-    let homeButton = document.getElementById("home-button");
-    homeButton.addEventListener("click", function() {
-        // Go back to the home page
-        window.location.reload();
-    });
-  }
+
+    // Add event listeners to restart and home buttons
+    const restartButton = resultElement.querySelector("#restart-button");
+    restartButton.addEventListener("click", handleRestart);
+
+    const homeButton = resultElement.querySelector("#home-button");
+    homeButton.addEventListener("click", handleHome);
+}
+
+// Function to handle quiz restart
+function handleRestart() {
+    // Reset the quiz
+    startPage.style.display = "none";
+    quizContent.style.display = "block";
+    startGame(); // Restart the quiz
+}
 
 /**
- * This function will handle the next button.
- * when there is no more question it will show the score
+ * It reloads the current page using window.location.reload(), 
+ * effectively refreshing the page and returning the user to the home page.
+ */
+function handleHome() {
+    // Go back to the home page
+    window.location.reload();
+}
+
+/**
+ * This function controls the progression of the quiz, 
+ * moving from one question to the next until all questions have been answered.
  */
 
 function handleNextButton() {
@@ -285,32 +317,37 @@ function handleNextButton() {
 }
 
 /**
- * Function for the next button with event listener click
+ * This function handles the click event for the "Next" button
  */
-nextButton.addEventListener("click", () => {
+function handleNextButtonClick() {
     if (currentQuestionIndex < questions.length) {
+        // If there are more questions, move to the next question
         handleNextButton();
-
     } else {
-        // Show the start page
-        startPage.style.display = "block";
-        // Hide the quiz content
-        quizContent.style.display = "none";
-        // Reset question index and score
-        currentQuestionIndex = 0;
-        score = 0;
-        // Hide the next button
-         // Show the input field, submit button, and name label again
-         userInput.style.display = 'block';
-         nameLabel.style.display = 'block';
-         submittbtn.style.display = 'block';
-        // Clear the welcome message
-        welcomeSection.innerHTML = '';
-       
-       
+        // If all questions have been answered, reset the quiz
+        resetQuiz();
     }
+}
 
-});
+// Attach the event listener to the "Next" button
+nextButton.addEventListener("click", handleNextButtonClick);
+
+// Function to reset the quiz
+function resetQuiz() {
+    // Show the start page
+    startPage.style.display = "block";
+    // Hide the quiz content
+    quizContent.style.display = "none";
+    // Reset question index and score
+    currentQuestionIndex = 0;
+    score = 0;
+    // Show the input field, submit button, and name label again
+    userInput.style.display = 'block';
+    nameLabel.style.display = 'block';
+    submitButton.style.display = 'block';
+    // Clear the welcome message
+    welcomeSection.innerHTML = '';
+}
 
 
 startGame();
