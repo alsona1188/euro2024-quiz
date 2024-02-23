@@ -2,11 +2,11 @@
 
 ## Project Overview
 
-Quiz Euro 2024 is a small quiz game for all football and Euro Championship fans. It is a simple and fun quiz for all adults and children who want to test their knowledge but at the same time can learn new and interesting information.
+Introducing Quiz Euro 2024 - a dynamic quiz game designed to ignite the passion of football fans and immerse them in the excitement of the upcoming Euro Championship. Inspired by the anticipation surrounding the tournament in Germany, this interactive quiz is your ticket to a world of fun and knowledge about one of the most celebrated events in football.
 
-I took the insipiration for this idea from the competition that will be held this year in Germany. Many people are looking forward to this compatition and through this quiz they can get more involved in the beautiful atmosphere that football and sport in general give people. 
+Quiz Euro 2024 isn't just another trivia game; it's an immersive experience crafted for fans of all ages, whether you're a seasoned football aficionado or just starting to explore the world of soccer. Dive into a treasure trove of questions spanning the history of the Euro Championship, unforgettable moments, host cities, and fascinating trivia that will leave you amazed.
 
-![screenshot of amiresponsive](document/responsiv.JPG)
+![screenshot of amiresponsive](document/amiresponsive.png)
 
 ### Live Website
 
@@ -65,7 +65,7 @@ I designed the colour palette for the website myself. I only used [colorspace](h
 
 I used Google Fonts to import the following:
 
-- 'Inter', is a sans-serif style which I chose. It looks aimple and clear at the same time.
+- 'Inter', is a sans-serif style which I chose. It looks simple and clear at the same time.
   
  ## Features
 
@@ -78,56 +78,45 @@ The page is responsive and contains:
 ![screenshot of the favicon](document/favicon.JPG)
 
 - Landing Page
-  - This would be the first page the user would see, introducing the theme with an heading and an icon, background image. There are two buttons that the user sees at the first sight.
-- ![screenshot of land page](document/land_page.JPG)
+  - This would be the first page the user would see, introducing the theme with an heading and an icon, background image.
+  - The user has to create a username and submit. If not an alert message will come. 
+  - Instructions button, here the user can read how to play. 
+![screenshot of land page](document/landing_page.png)
+
+- Welcome message
+  - After submiting the username the user will see a welcome message and also the start button.
+
+![screenshot of welcome message](document/welcome.png)
 
 - Quiz Area
   - Here users can see directly the quiz. The quiz area has the main question and also 4 option for each question.
   - Once the user selects an answer, different colours are displayed to show if they were correct.  The user is also given a 'next' button which allows the user to go onto the next question.
+  - The user will see that there is a time limit of 15 seconds for each question.
 
-![screenshot of questions and options](document/question-and-options.JPG)
+![screenshot of quiz area](document/quiz_area.png)
 
-- Info and Next buttons
- - The user can see directly two buttons.
-  
-![screenshot of info and next buttons](document/info-next-button.JPG)
+  - When the time is over an alert will show that the game will restart again.
 
- - If the user clicks the info button, a pop up information will come up that will ask the user to add the username.
-  
-  ![screenshot of info and next buttons](document/popup_entername.JPG)
-  
- - After entering the name an automatic message will display in the quiz area. This message will give a little information about the game.
-  
-![after entering the name](document/after_popup.JPG)
-
-- If no name is entered, so if the user closses with x, it will show the message "no name was entered".
-  
-![if no username is inserted](document/no-username.JPG)  
+![screenshot of the alert time over](document/alert.png)
 
 - Result Page
-  - In the last page will be 2 different message displayed.
-  - The next button will be converted to restart button.
-  - A sound effect is added on the last page, which indicates that the game is over.
-  - The first case is when the user finds all the questions.
-  
-![screenshot of all correct answers](document/all-correct-answers.JPG)
+  - Here the user will see a scoreboard with username, the total scores, total correct answers and total wrong answers.
 
-  - The second case is when the user will not find all the correct answers.
-  
-![screenshot of not all correct answers](document/not-all-correct.JPG)  
+![screenshot of result page](document/scoreboard.png)
 
-  - After clicking the restart button, the info button will apear again and the message will change to "Let's try again"
-  
-![screenshot after restart](document/after-restart.JPG) 
+  - Two more buttons will appear like restart and home.
 
+  - After clicking the restart button, the game will be restarted with a random turn of questions. 
+  - If the user click on home button, it will take him to the landing page. 
+  
 - Sound Effects
-  - The first sound is implemented when the user presses the info button. This helps give the user a sense of immersion into the game.
   - The correct & incorrect sound effects are activated upon selecting an answer, helping to add excitement to the user's experience.
 
 ### Future Implementations
 
 - A multi-player feature for participants to compete remotely head-to-head on different devices along with the possibility for them to challenge participants to these head-to-head games.
 - I would like to create different levels of difficulty for the game.
+- I would like to add a ranking scoreboard, that will display the usernames from top scored to less.
 
  ## Testing
 - I tested that this page works in different browsers: Crome, Firefox, Safari.
@@ -148,11 +137,8 @@ The page is responsive and contains:
   
 - **[JSHint](https://jshint.com/)**
   - No errors were returned when passing through the official jshint validator.
-- The info returned is:
-  - There are 10 functions in this file.
-  - Function with the largest signature take 1 arguments, while the median is 0.
-  - Largest function has 9 statements in it, while the median is 6.
-  - The most complex function has a cyclomatic complexity value of 3 while the median is 2.
+
+![JS validator](document/js_validator.png)
 
 ### Lighthouse
 - Performance - How the page performs whilst loading.
@@ -160,10 +146,15 @@ The page is responsive and contains:
 - Best Practices - Site conforms to industry best practices.
 - SEO - Search engine optimisation. Is the site optimised for search engine result rankings.
 
-![lighthouse screenshot](document/lighthouse.JPG) 
+![lighthouse screenshot](document/lighthouse.png) 
 
 ### Bugs
- - No bugs were found.
+ - Resolved Bugs:
+ 1. Experiencing the repeating of the questions after doing the random function. Resolved it by adding the code:
+ let remainingQuestions = questions.filter(question => !askedQuestions.includes(question));
+ 2. When i pressed the restart button is showing the question 20 => resolved it by adding at the startGame()questionNo = 0.
+
+ - Unresolved Bugs: There are no unresolved bugs.
 
  ## Technologies Used
 
