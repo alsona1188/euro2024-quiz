@@ -157,6 +157,10 @@ function showQuestion() {
     questionElement.innerHTML = `${questionNo} out of ${questions.length}: ${currentQuestion.question}`;
 
     // Display answer options for the current question
+    /**
+     * this code was take from the youtube tutorial 
+     * https://www.youtube.com/watch?v=PBcqGxrr9g8&t=770s
+    */
     currentQuestion.answers.forEach(answer => {
         // Create a button for each answer option
         let button = document.createElement("button");
@@ -191,6 +195,7 @@ function selectOption(event) {
     const isTrue = selectedOption.dataset.value === "true";
 
     // Apply styling and play sound based on correctness
+    // this part of the code was taken from tutorial https://www.youtube.com/watch?v=PBcqGxrr9g8&t=770s
     if (isTrue) {
         selectedOption.classList.add("is-true");
         selectedOption.style.backgroundColor = "#084F31";
@@ -302,6 +307,7 @@ function handleHome() {
 /**
  * This function controls the progression of the quiz, 
  * moving from one question to the next until all questions have been answered.
+ * inspired by youtube tutorial https://www.youtube.com/watch?v=PBcqGxrr9g8
  */
 
 function handleNextButton() {
