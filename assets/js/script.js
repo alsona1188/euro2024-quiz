@@ -249,7 +249,6 @@ function showQuestion() {
     questionNo++;
     questionElement.innerHTML = `${questionNo} out of ${questions.length}: ${currentQuestion.question}`;
 
-    // Display answer options for the current question
     /**
      * this code was take from the youtube tutorial 
      * https://www.youtube.com/watch?v=PBcqGxrr9g8&t=770s
