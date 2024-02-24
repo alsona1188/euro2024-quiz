@@ -80,8 +80,12 @@ The page is responsive and contains:
 - Landing Page
   - This would be the first page the user would see, introducing the theme with an heading and an icon, background image.
   - The user has to create a username and submit. If not an alert message will come. 
+
+  ![screenshot of land page](document/landing_page.png)
+
   - Instructions button, here the user can read how to play. 
-![screenshot of land page](document/landing_page.png)
+
+![screenshot of instructions](document/instructions.png)
 
 - Welcome message
   - After submiting the username the user will see a welcome message and also the start button.
@@ -104,7 +108,9 @@ The page is responsive and contains:
 
 ![screenshot of result page](document/scoreboard.png)
 
-  - Two more buttons will appear like restart and home.
+  - Three different message will appear, when the user got less than 50 points, more than 80 and 100 points.
+
+  - Two more buttons will appear: restart and home.
 
   - After clicking the restart button, the game will be restarted with a random turn of questions. 
   - If the user click on home button, it will take him to the landing page. 
