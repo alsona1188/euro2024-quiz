@@ -121,7 +121,6 @@ let timerValue = 15; // Initial timer value
 
  // Add event listener to the submit button
  submittbtn.addEventListener('click', function() {
-    // Get the value entered by the user
     userName = userInput.value.trim();
     // Check if the user entered a name
     if (userName !== '') {
@@ -194,10 +193,8 @@ function startTimer() {
  */
 function handleTimeout() {
     if (quizContent.style.display === "block") {
-        // Inform the user that the time is over only if the quiz content is displayed
         alert('Time is over! Restarting the game.');
     }
-    // Restart the game
     startGame();
 }
 
@@ -214,8 +211,8 @@ function resetTimer() {
 
 /**
  * This function will show all the questions and options one by one 
- * will update also the question number
- * the questions will be filtered and appear randomly
+ * Will update also the question number
+ * The questions will be filtered and appear randomly
  * and will update the text
  */
 
@@ -280,6 +277,7 @@ function resetQuestionAndAnswer() {
 /**
  * When we will click on the buttons it will add the selected option on the variable 
  * and than it will check for the dataset values if it is true or not
+ * This part of the code was taken from tutorial https://www.youtube.com/watch?v=PBcqGxrr9g8&t=770s
  */
 function selectOption(event) {
     resetTimer(); // Reset timer when an option is selected
@@ -287,7 +285,6 @@ function selectOption(event) {
     const isTrue = selectedOption.dataset.value === "true";
 
     // Apply styling and play sound based on correctness
-    // this part of the code was taken from tutorial https://www.youtube.com/watch?v=PBcqGxrr9g8&t=770s
     if (isTrue) {
         selectedOption.classList.add("is-true");
         selectedOption.style.backgroundColor = "#084F31";
@@ -392,7 +389,6 @@ function handleRestart() {
  * effectively refreshing the page and returning the user to the home page.
  */
 function handleHome() {
-    // Go back to the home page
     window.location.reload();
 }
 

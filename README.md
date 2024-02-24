@@ -103,12 +103,14 @@ The page is responsive and contains:
 
 ![screenshot of the alert time over](document/alert.png)
 
+  - If the user answers correctly the option will be green and if the answer is wrong it will be highlighted with red. Every correct answer adds up to 10 points. 
+
 - Result Page
   - Here the user will see a scoreboard with username, the total scores, total correct answers and total wrong answers.
 
 ![screenshot of result page](document/scoreboard.png)
 
-  - Three different message will appear, when the user got less than 50 points, more than 80 and 100 points.
+  - Three different message will appear, when the user got less than 50 points, more than 80 points and 100 points.
 
   - Two more buttons will appear: restart and home.
 
